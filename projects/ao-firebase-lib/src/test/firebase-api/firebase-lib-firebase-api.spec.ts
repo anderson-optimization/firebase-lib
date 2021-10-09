@@ -49,10 +49,9 @@ describe('Firebase Api', () => {
       expect(value.a.name.first).toBe('Jack');
     });
     
-    it('grabs a snapshot of a resource by using a params object', async () => {
-      let path = 'c';
-      let options = {returnData: ['snapshot']};
-      let {snapshot} = await resources.users.userInfo.get({path, options});
+    it('grabs a snapshot of a resource', async () => {
+      let params = {path: 'c', options: {returnData: ['snapshot']}};
+      let {snapshot} = await resources.users.userInfo.get(params);
       expect(snapshot.child('name/first').val()).toBe('Allison');
     });
    
@@ -139,15 +138,15 @@ describe('Firebase Api', () => {
       expect(value).toEqual({first: 'Tom', last: 'Holland'});
     });
     
-    it('will keep previous non-variable path when optioned', async () => {
-      let params = {path: {vars: {'#id': 'b', '#name': 'name'}, extras: ['first']}} as any;
-      let {value} = await resources.users.userInfoData.get(params);
+    it('will truncate preset non-variable path when optioned', async () => {
+      let pathInfo = {vars: {'#id': 'b', '#name': 'name'}, extras: ['first']};
+      resources.users.userInfoData.setPath(pathInfo);
+      let {value} = await resources.users.userInfoData.get();
       expect(value).toBe('Tom');
       
-      delete params.path.extras;
-      params.options = {previousExtras: true};
+      let params = {options: {truncateExtras: true}};
       ({value} = await resources.users.userInfoData.get(params));
-      expect(value).toBe('Tom');
+      expect(value).toEqual({first: 'Tom', last: 'Holland'});
     });
     
     it('can replace path variables globally (across all resources)', async () => {

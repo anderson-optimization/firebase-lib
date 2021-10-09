@@ -3,13 +3,18 @@ import {globalVariablePrefix, variablePrefixes} from '../../_lib/resources-apis-
 import {variableToResourceDefinitions}          from '../../_lib/resources-apis-builder-vars';
 
 export function pathProcessor(resourceDefinition, {name, database}) {
-  let {path} = resourceDefinition;
+  let {path, setPath} = resourceDefinition;
   
   if(!Array.isArray(path)) {
     var skipPathScan = true;
-    resourceDefinition.path = [path];
+    path = [path];
+    Object.assign(resourceDefinition, {path});
   }
-
+  
+  if(!setPath) {
+    Object.assign(resourceDefinition, {setPath: path});
+  }
+  
   if(!skipPathScan) {
     let pathVariablesToIndices = {};
     let pathVariableNames = [];

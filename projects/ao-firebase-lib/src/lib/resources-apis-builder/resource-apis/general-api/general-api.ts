@@ -1,7 +1,7 @@
+import omit                            from 'lodash.omit';
 import cloneDeep                       from 'lodash.clonedeep';
 import isPlainObject                   from 'lodash.isplainobject';
 import mergeWith                       from 'lodash.mergewith';
-import omit                            from  'lodash.omit';
 import {error}                         from '../../../_lib/utils';
 import {variableToResourceDefinitions} from '../../_lib/resources-apis-builder-vars';
 import {resourceApiBuilder}            from '../../resource-api-builder/resource-api-builder';
@@ -40,24 +40,20 @@ export const generalApi = {
     mergeWith(this.methodsParams, _methodsParams, paramsMerger);
   },
   
-  setPath(pathInfo, previousExtras = false) {
+  setPath(pathInfo, internal = false, truncateExtras = false) {
     let {resourceDefinition} = this;
-    let {pathVariableNames, path, activePath} = resourceDefinition;
+    let {pathVariableNames, path, setPath} = resourceDefinition;
     let {pathVariablesToIndices = {}, resourceNameFull} = resourceDefinition;
     let {vars = {}, extras = []} = pathInfoNormalizer(pathInfo);
     let providedVariableNames = Object.keys(vars);
     let unknowns = difference(providedVariableNames, pathVariableNames);
-    
+    let activePath = setPath.slice();
+
     if(unknowns.length) {
       let message =  `resource path for '${resourceNameFull}' does not include `;
           message += `the following variables: ${unknowns.join(', ')}`;
       
       error(message);
-    }
-
-    if(!activePath) {
-      activePath = path.slice();
-      Object.assign(resourceDefinition, {activePath});
     }
     
     providedVariableNames.forEach((variableName) => {
@@ -73,10 +69,15 @@ export const generalApi = {
     
     if(extras.length) {
       activePath.splice(path.length, Infinity, ...extras);
-    } else if(!previousExtras) {
+    } else if(truncateExtras) {
       activePath.splice(path.length);
     }
     
-    return activePath;
+    if(internal) {
+      return activePath;
+    }
+    
+    resourceDefinition.setPath = activePath;
+    Object.assign(resourceDefinition, {setPath: activePath});
   }
 };

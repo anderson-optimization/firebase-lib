@@ -19,17 +19,15 @@ describe('Miscellaneous', () => {
       let error = new Error(message);
       expect(() => resourcesApisFactory(params)).toThrow(error);
     });
-  });
-  
-  describe('Configs Preprocessors', () => {
+    
     it('errors when no angular or firebase database instances are provided', () => {
       let namespace = {users: 'users'};
       let message  = `${libraryName}: provide angular or regular firebase instance`;
       let error = new Error(message);
       expect(() => resourcesApisFactory({namespace})).toThrow(error);
-    });
+    });    
   });
-  
+
   describe('resourcesApisBuilder()', () => {
     it('errors when a key in namespace definition conflicts with api methods', () => {
       let namespace = {users: {get: {}}};

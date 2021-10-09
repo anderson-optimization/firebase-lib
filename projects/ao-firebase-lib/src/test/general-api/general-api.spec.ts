@@ -25,7 +25,7 @@ describe('General Resource Api', () => {
       let {value: teamCloned} = teamClone.get();
       expect(teamOriginal).toEqual(teamCloned);
     });
-    
+
     it(`it will register cloned resource's global variables`, async () => {
       let {teamInfo} = resources.teams;
       let teamClone = teamInfo.clone();

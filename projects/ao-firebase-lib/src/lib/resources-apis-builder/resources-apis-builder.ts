@@ -29,8 +29,8 @@ export function resourcesApisBuilder(params) {
     }
     
     params = {configs, namespace, resourceDefinition, first: false, names: names.concat(name)};
-    namespace = resourcesApisBuilder(params);
-    return Object.assign(_namespace, {[name]: namespace});
+    _namespace[name] = resourcesApisBuilder(params);
+    return _namespace;
   }, {} as any);
 
   return new Proxy({}, {
