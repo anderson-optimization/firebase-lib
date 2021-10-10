@@ -1,52 +1,48 @@
-import {libraryName, resourceCollections}  from '../../lib/_lib/vars'
-import {firebaseLibInitializerForFirebase} from './_fixtures/firebase-lib-initializer-for-firebase'
+import {libraryName, resourceCollections}  from '../../lib/_lib/vars';
+import {usersData}                         from '../_fixtures/data/users-data';
+import {firebaseLibInitializerForFirebase} from '../_fixtures/initializers/firebase-lib-initializer-for-firebase';
+import {namespace}                         from './_fixtures/namespace-firebase';
 
 describe('Firebase Api', () => {
   let resources;
   
   beforeAll(() => {
-    firebaseLibInitializerForFirebase();
+    firebaseLibInitializerForFirebase('firebase', namespace);
     resources = resourceCollections.firebase;
   });
 
   describe('get()', () => {
-    let usersData = {
-      a: {name: {first: 'Jack', last: 'Smith'}},
-      b: {name: {first: 'Tom', last: 'Holland'}},
-      c: {name: {first: 'Allison', last: 'Jones'}}        
-    };
-    
-    let hobbiesData = {c: {'-MlCLFIZRdCIINE0_qlc': 'writing'}};
+    let nameData = {first: 'last'};
     
     beforeAll(async () => {
       let p1 = resources.users.userInfo.set(undefined, usersData);
-      let p2 = resources.users.userInfo.hobbies.set(undefined, hobbiesData);
-      let p3 = resources.name.set(undefined, {first: 'last'});
-      await Promise.all([p1, p2, p3]);
+      let p2 = resources.name.set(undefined, nameData);
+      await Promise.all([p1, p2]);
     });
     
     it('retrieves an entirety of resource data when no path is supplied', async () => {
       let {value} = await resources.name.get();
-      expect(value).toEqual({first: 'last'});
+      expect(value).toEqual(nameData);
     });
    
     it('gets a subset of a resource via a string path', async () => {
       let {value} = await resources.name.get('first');
-      expect(value).toEqual('last');
+      expect(value).toEqual(nameData.first);
     });
    
     it('obtains a subset of a resource via an array path', async () => {
       let {value} = await resources.users.userInfo.get(['a', 'name']);
-      expect(value).toEqual({first: 'Jack', last: 'Smith'});
+      expect(value).toEqual(usersData.a.name);
     });
      
     it('fetches a subset of a resource using a query', async () => {
       let query = [
         ['orderByKey'],
-        ['limitToFirst', 1]
+        ['limitToLast', 1]
       ];
       let {value} = await resources.users.userInfo.get(null, query) as any;
-      expect(value.a.name.first).toBe('Jack');
+      let ids = Object.keys(value);
+      expect(ids).toEqual(['c']);
     });
     
     it('grabs a snapshot of a resource', async () => {
@@ -80,82 +76,9 @@ describe('Firebase Api', () => {
       expect(key).toBe('users');
     });
 
-    it('returns "null" when path to a resource is incorrect', async () => {
+    it(`returns 'null' when path to a resource is incorrect`, async () => {
       let {value} = await resources.users.userInfo.get('incorrect');
       expect(value).toBe(null);
-    });
-  });
-
-  describe('configurable resource paths', () => {
-    it('errors if resource is accessed and some path variables are not replaced', () => {
-      let message  = `${libraryName}: path for 'users.userInfoVars' includes `;
-          message += `non-replaced variables: #name`;
-      let error = new Error(message);
-      let params = {path: {vars: {$id: 'another'}}};
-      expect(() => resources.users.userInfoVars.get(params)).toThrow(error);
-    });
-    
-    it('errors if resource is accessed and incorrect path variables are specified', () => {
-      let message  = `${libraryName}: resource path for 'users.userInfoVars' does not `;
-          message += `include the following variables: $incorrect`;
-      let error = new Error(message);
-      expect(() => resources.users.userInfoVars.get([['$incorrect', false]])).toThrow(error);
-    });
-
-    it('errors if specified global variable does not exist', () => {
-      let error = new Error(`${libraryName}: incorrect global variable: $incorrect`);
-      expect(() => resources.setPathVariables('$incorrect', '')).toThrow(error);
-    });
-
-    it('pulls data after replacing path variables in the call', async () => {
-      let {value} = await resources.users.userInfoData.get([{'#id': 'a'}, {'#name': 'name'}]);
-      expect(value).toEqual({first: 'Jack', last: 'Smith'});
-    });
-
-    it('retrieves data after appending non-variable path', async () => {
-      let path = [['#id', 'a'], ['#name', 'name'], 'last'];
-      let {value} = await resources.users.userInfoData.get(path);
-      expect(value).toBe('Smith');
-    });
-
-    it('fetches data after replacing non-variable path', async () => {
-      let path = [{'#id': 'a'}, {'#name': 'name'}, 'last'];
-      let {value} = await resources.users.userInfoData.get(path);
-      expect(value).toBe('Smith');
-      
-      path = ['first'];
-      ({value} = await resources.users.userInfoData.get({path}));
-      expect(value).toBe('Jack');
-    });
-    
-    it('does not keep previous non-variable path by default', async () => {
-      let path = [['#id', 'b'], ['#name', 'name'], 'first'];
-      let {value} = await resources.users.userInfoData.get(path);
-      expect(value).toBe('Tom');
-      
-      path = [['#id', 'b'], ['#name', 'name']];
-      ({value} = await resources.users.userInfoData.get(path));
-      expect(value).toEqual({first: 'Tom', last: 'Holland'});
-    });
-    
-    it('will truncate preset non-variable path when optioned', async () => {
-      let pathInfo = {vars: {'#id': 'b', '#name': 'name'}, extras: ['first']};
-      resources.users.userInfoData.setPath(pathInfo);
-      let {value} = await resources.users.userInfoData.get();
-      expect(value).toBe('Tom');
-      
-      let params = {options: {truncateExtras: true}};
-      ({value} = await resources.users.userInfoData.get(params));
-      expect(value).toEqual({first: 'Tom', last: 'Holland'});
-    });
-    
-    it('can replace path variables globally (across all resources)', async () => {
-      resources.setPathVariables({'$uid': 'c'});
-      resources.users.userInfoGlobal.setPath({'#name': ['name', 'last']});
-      let {value: hobbies} = await resources.users.userInfo.hobbiesVar.get();
-      let {value: lastName} = await resources.users.userInfoGlobal.get();
-      expect(Object.values(hobbies)[0]).toBe('writing');
-      expect(lastName).toBe('Jones');
     });
   });
   
@@ -184,7 +107,7 @@ describe('Firebase Api', () => {
         let value = {hex: 'FFFFFF', rgb: '255,255,255'};
         let options = {returnData: ['value']};
         let {value: color} = await resources.colors.colorInfo.set('white', value, options);
-        expect(color).toEqual({hex: 'FFFFFF', rgb: '255,255,255'});
+        expect(color).toEqual(value);
       });
 
       it('adds new record with custom key and timestamp', async () => {

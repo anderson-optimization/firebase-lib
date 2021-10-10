@@ -2,8 +2,8 @@ import {getAndSetIfNil}                         from '../../_lib/resources-apis-
 import {globalVariablePrefix, variablePrefixes} from '../../_lib/resources-apis-builder-vars';
 import {variableToResourceDefinitions}          from '../../_lib/resources-apis-builder-vars';
 
-export function pathProcessor(resourceDefinition, {name, database}) {
-  let {path, setPath} = resourceDefinition;
+export function pathProcessor(resourceDefinition, {collectionName, database}) {
+  let {path, pathTemplate} = resourceDefinition;
   
   if(!Array.isArray(path)) {
     var skipPathScan = true;
@@ -11,14 +11,15 @@ export function pathProcessor(resourceDefinition, {name, database}) {
     Object.assign(resourceDefinition, {path});
   }
   
-  if(!setPath) {
-    Object.assign(resourceDefinition, {setPath: path});
+  if(!pathTemplate) {
+    resourceDefinition.pathTemplate = path;
   }
   
   if(!skipPathScan) {
     let pathVariablesToIndices = {};
     let pathVariableNames = [];
-    let _variableToResourceDefinitions = getAndSetIfNil(variableToResourceDefinitions, name, {});
+    let params = [variableToResourceDefinitions, collectionName, {}] as any;
+    let _variableToResourceDefinitions = getAndSetIfNil(...params);
     
     for(let [index, part] of Object.entries(path)) {
       if(variablePrefixes.includes(part[0])) {

@@ -16,7 +16,7 @@ function assertPathIsValid(path, {resourceNameFull}) {
   }, []);
   
   if(variables.length) {
-    let message  = `path for '${resourceNameFull}' includes non-replaced `;
+    let message  = `for '${resourceNameFull}' include the following `;
         message += `variables: ${variables.join(', ')}`;
     
     error(message);
@@ -48,7 +48,7 @@ export function reconcileParamsWithPresets(api, method, params) {
 
 export function reconcilePathToRef(api, path, {truncateExtras}) {
   if(!(path && typeof path === 'object' && path.onDisconnect)) {
-    let activePath = api.setPath(path, true, truncateExtras);
+    let activePath = api.updatePathTemplate(path, true, truncateExtras);
     assertPathIsValid(activePath, api.resourceDefinition);
     return api.database.ref(activePath.join('/'));
   }

@@ -18,19 +18,19 @@ export class TopGeneralApi {
   }
 
   removeFromVariablesIndex() {
-    let {name} = this.configs;
-    delete variableToResourceDefinitions[name];
+    let {collectionName} = this.configs;
+    delete variableToResourceDefinitions[collectionName];
   }
 
   setPathVariables(variableName, value?) {
-    let {name} = this.configs;
+    let {collectionName} = this.configs;
 
     if(!isPlainObject(variableName)) {
       variableName = {[variableName]: value};
     }
 
     Object.entries(variableName).forEach(([variableName, value]) => {
-      let collectionResourceDefinitions = variableToResourceDefinitions[name] || {} ;
+      let collectionResourceDefinitions = variableToResourceDefinitions[collectionName] || {} ;
       let resourceDefinitions = collectionResourceDefinitions[variableName];
       
       if(!resourceDefinitions) {
@@ -38,7 +38,7 @@ export class TopGeneralApi {
       }
       
       Object.entries(resourceDefinitions).forEach(([, resourceDefinition]) => {
-        resourceDefinition['resourceApi'].setPath({vars: {[variableName]: value}});
+        resourceDefinition['resourceApi'].updatePathTemplate({vars: {[variableName]: value}});
       });
     });
   }  

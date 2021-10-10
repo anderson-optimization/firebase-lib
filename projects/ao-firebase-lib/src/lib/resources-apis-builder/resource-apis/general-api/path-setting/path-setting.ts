@@ -1,5 +1,4 @@
 import isPlainObject      from 'lodash.isplainobject';
-import {error}            from '../../../../_lib/utils';
 import {variablePrefixes} from '../../../_lib/resources-apis-builder-vars';
 
 export function pathInfoNormalizer(pathInfo) {

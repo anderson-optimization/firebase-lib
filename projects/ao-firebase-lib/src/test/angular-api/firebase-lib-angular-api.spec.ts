@@ -1,29 +1,26 @@
-import {resourceCollections}              from '../../lib/_lib/vars'
-import {firebaseLibInitializerForAngular} from './_fixtures/firebase-lib-initializer-for-angular'
+import {resourceCollections}              from '../../lib/_lib/vars';
+import {citiesData}                       from '../_fixtures/data/cities-data';
+import {firebaseLibInitializerForAngular} from '../_fixtures/initializers/firebase-lib-initializer-for-angular';
+import {namespace}                        from './_fixtures/namespace-angular';
 
 describe('AngularFirebase Api', () => {
-  let resources
-  let cities = {
-    ny: {name: 'New York', state: 'NY'},
-    mem: {name: 'Memphis', state: 'TN'},
-    knx: {name: 'Knoxville', state: 'TN'}    
-  };
+  let resources;
   
   beforeAll(async () => {
-    firebaseLibInitializerForAngular();
+    firebaseLibInitializerForAngular('angular', namespace);
     resources = resourceCollections.angular;
   });
 
   describe('list()', () => {
     beforeAll(async () => {
-      await resources.cities.set(undefined, cities);
+      await resources.cities.set(undefined, citiesData);
     });
     
     it('gets an array of objects', (done) => {
       let subscription = resources.cities.list().subscribe((data) => {
         let sorter = (c1, c2) => c1.name > c2.name ? 1 : -1;
         let [city] = data.sort(sorter);
-        expect(city).toEqual(cities.knx);
+        expect(city).toEqual(citiesData.knx);
         subscription.unsubscribe();
         done();
       });
@@ -66,12 +63,12 @@ describe('AngularFirebase Api', () => {
   
   describe('object()', () => {
     beforeAll(async () => {
-      await resources.cities.set(undefined, cities);
+      await resources.cities.set(undefined, citiesData);
     });
     
     it('retrieves an object of entries', (done) => {
       let subscription = resources.cities.object().subscribe((data) => {
-        expect(Object.keys(data).sort()).toEqual(Object.keys(cities).sort());
+        expect(Object.keys(data).sort()).toEqual(Object.keys(citiesData).sort());
         subscription.unsubscribe();
         done();
       });
@@ -80,7 +77,7 @@ describe('AngularFirebase Api', () => {
     it('fetches a snapshot', (done) => {
       let params = {path: 'knx', method: 'snapshotChanges'};
       let subscription = resources.cities.object(params).subscribe((snapshot) => {
-        expect(snapshot.payload.val()).toEqual(cities.knx);
+        expect(snapshot.payload.val()).toEqual(citiesData.knx);
         subscription.unsubscribe();
         done();
       });
@@ -90,7 +87,7 @@ describe('AngularFirebase Api', () => {
       let params = {path: 'ny', eventTypes: ['child_changed']};
       let update = {population: 8_419_000};
       let subscription = resources.cities.object(params).subscribe((data) => {
-        let newData = {...update, ...cities.ny};
+        let newData = {...update, ...citiesData.ny};
         expect(data).toEqual(newData);
         subscription.unsubscribe();
       });
@@ -104,7 +101,7 @@ describe('AngularFirebase Api', () => {
         ['equalTo', 'TN']
       ];
       let subscription = resources.cities.object({query}).subscribe((data) => {
-        expect(Object.keys(data).length).toBe(Object.keys(cities).length);
+        expect(Object.keys(data).length).toBe(Object.keys(citiesData).length);
         subscription.unsubscribe();
         done();
       });

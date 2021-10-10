@@ -1,7 +1,9 @@
 import cloneDeep     from 'lodash.clonedeep';
 import isPlainObject from 'lodash.isplainobject';
 
-export function getAndSetIfNil(o, property, valueIfNotSet) {
+export function getAndSetIfNil(...params) {
+  let [o, property, valueIfNotSet] = params;
+  
   let value = o[property];
   
   if(typeof value === 'undefined') {
@@ -36,7 +38,7 @@ export function normalizeResourceDefinition(resourceDefinition) {
 
   return resourceDefinition;
 }
-
+/*
 export function omit(o, props) {
   let picks = pick(o, props);
 
@@ -57,3 +59,4 @@ export function pick(o, props) {
 
   return _o;  
 }
+*/

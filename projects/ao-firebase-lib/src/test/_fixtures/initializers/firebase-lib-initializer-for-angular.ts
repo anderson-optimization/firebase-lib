@@ -5,18 +5,17 @@ import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
 import {AngularFireDatabase}       from '@angular/fire/compat/database';
 import firebase                    from 'firebase/compat/app';
 import {resourcesApisFactory}      from '../../../lib/ao-firebase-lib';
-import {firebaseConfigs}           from '../../_fixtures/firebase-configs';
-import {namespace}                 from './namespace-angular';
+import {firebaseConfigs}           from '../configs/firebase-configs';
 
-@Injectable()
-class FirebaseLibInitializerService {
-  constructor(angularDatabase: AngularFireDatabase) {
-    firebase.setLogLevel('silent')
-    resourcesApisFactory({name: 'top-level', angularDatabase, namespace});
+export function firebaseLibInitializerForAngular(collectionName, namespace) {
+  @Injectable()
+  class FirebaseLibInitializerService {
+    constructor(angularDatabase: AngularFireDatabase) {
+      firebase.setLogLevel('silent')
+      resourcesApisFactory({collectionName, angularDatabase, namespace});
+    }
   }
-}
-
-export function firebaseLibInitializerForAngular() {
+  
   TestBed.configureTestingModule({
     imports: [
       AngularFireModule.initializeApp(firebaseConfigs),

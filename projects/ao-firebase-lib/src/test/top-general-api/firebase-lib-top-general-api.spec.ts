@@ -1,17 +1,15 @@
-import {libraryName, resourceCollections} from '../../lib/_lib/vars'
-import {firebaseLibInitializerForAngular} from './_fixtures/firebase-lib-initializer-for-angular'
+import {libraryName, resourceCollections} from '../../lib/_lib/vars';
+import {citiesData}                       from '../_fixtures/data/cities-data';
+import {firebaseLibInitializerForAngular} from '../_fixtures/initializers/firebase-lib-initializer-for-angular';
+import {namespace}                        from './_fixtures/namespace-top-general';
 
 describe('Top-Level General Api', () => {
-  let resources
-  let cities = {
-    fl: {tmp: {name: 'Tampa', population: 387_916}},
-    tn: {mem: {name: 'Memphis', population: 651_932}}
-  };
+  let resources;
   
   beforeAll(async () => {
-    firebaseLibInitializerForAngular();
+    firebaseLibInitializerForAngular('top-level', namespace);
     resources = resourceCollections['top-level'];
-    await resources.cities.set({value: cities});
+    await resources.cities.set({value: citiesData});
   });
   
   describe('getAngularDatabase()', () => {
@@ -39,13 +37,13 @@ describe('Top-Level General Api', () => {
   
   describe('removeFromVariablesIndex()', () => {
     it('clears all resource definitions from global variables registry', async () => {
-      resources.setPathVariables('$stateId', 'fl');
-      let {value: tampa} = await resources.citiesVars.get('tmp');
-      expect(tampa).toEqual(cities.fl.tmp);
+      resources.setPathVariables('$cityId', 'mem');
+      let {value: memphis} = await resources.citiesVars.get('name');
+      expect(memphis).toEqual(citiesData.mem.name);
       resources.removeFromVariablesIndex();
-      let message = `${libraryName}: incorrect global variable: $stateId`;
+      let message = `${libraryName}: incorrect global variable: $cityId`;
       let error = new Error(message);
-      expect(() => resources.setPathVariables('$stateId', 'tn')).toThrow(error);
+      expect(() => resources.setPathVariables('$cityId', 'knx')).toThrow(error);
     });
   });
 });

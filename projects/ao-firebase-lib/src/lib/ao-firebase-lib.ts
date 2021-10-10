@@ -5,12 +5,12 @@ import {angularApi, firebaseApi, generalApi} from './resources-apis-builder/reso
 import {TopGeneralApi}                       from './top-general-api/top-general-api';
 
 export function resourcesApisFactory(configs) {
-  let {name = 'default', namespace, angularDatabase, database} = configs as any;
+  let {collectionName = 'default', namespace, angularDatabase, database} = configs as any;
   let topGeneralApi = new TopGeneralApi(configs);
   let resourceDefinition = {topGeneralApi};
 
-  if(resourceCollections[name]) {
-    error(`resources collection '${name}' already exists`);
+  if(resourceCollections[collectionName]) {
+    error(`resources collection '${collectionName}' already exists`);
   }
 
   if(!database) {
@@ -40,5 +40,5 @@ export function resourcesApisFactory(configs) {
 
   Object.assign(configs, {ResourceApi});
   let params = {configs, namespace, resourceDefinition, first: true, names: []};
-  return resourceCollections[name] = resourcesApisBuilder(params);
+  return resourceCollections[collectionName] = resourcesApisBuilder(params);
 }

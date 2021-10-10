@@ -1,4 +1,4 @@
 export const namespace = {
   cities: 'municipalities',
-  citiesVars: ['municipalities', '$stateId']
+  citiesVars: ['municipalities', '$cityId']
 };

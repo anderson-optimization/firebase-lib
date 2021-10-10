@@ -1,6 +1,7 @@
-import {libraryName, resourceCollections} from '../../lib/_lib/vars'
-import {variableToResourceDefinitions}    from '../../lib/resources-apis-builder/_lib/resources-apis-builder-vars';
-import {firebaseLibInitializerForGeneral} from './_fixtures/firebase-lib-initializer-for-general'
+import {libraryName, resourceCollections}  from '../../lib/_lib/vars'
+import {variableToResourceDefinitions}     from '../../lib/resources-apis-builder/_lib/resources-apis-builder-vars';
+import {firebaseLibInitializerForFirebase} from '../_fixtures/initializers/firebase-lib-initializer-for-firebase';
+import {namespace}                         from './_fixtures/namespace-general';
 
 describe('General Resource Api', () => {
   let resources;
@@ -11,7 +12,7 @@ describe('General Resource Api', () => {
   };
   
   beforeAll(async () => {
-    firebaseLibInitializerForGeneral();
+    firebaseLibInitializerForFirebase('general', namespace);
     resources = resourceCollections.general;
     await resources.teams.set(null, teams);
   });
@@ -19,7 +20,7 @@ describe('General Resource Api', () => {
   describe('clone()', () => {
     it('creates an identical copy of a resource', async () => {
       let {teamInfo} = resources.teams;
-      teamInfo.setPath([['$tid', 1]]);
+      teamInfo.updatePathTemplate([['$tid', 1]]);
       let teamClone = teamInfo.clone();
       let {value: teamOriginal} = teamInfo.get();
       let {value: teamCloned} = teamClone.get();

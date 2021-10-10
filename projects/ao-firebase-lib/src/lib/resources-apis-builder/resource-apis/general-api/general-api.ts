@@ -10,6 +10,10 @@ import {difference}                    from './_lib/general-api-utils';
 import {pathInfoNormalizer}            from './path-setting/path-setting';
 
 export const generalApi = {
+  clearPathTemplate() {
+    this.resourceDefinition.pathTemplate = this.resourceDefinition.path.slice();
+  },
+  
   clone() {
     let {configs, resourceDefinition} = this;
     let omits = ['resourceApi', 'resourceDefinitionsIndexKey'];
@@ -22,15 +26,15 @@ export const generalApi = {
     let {resourceDefinitionsIndexKey, pathVariableNames} = this.resourceDefinition;
     
     if(resourceDefinitionsIndexKey) {
-      let {name} = this.configs;
+      let {collectionName} = this.configs;
       
       pathVariableNames.forEach((variableName) => {
-        let keyToResourceDefinitionMap = variableToResourceDefinitions[name][variableName];
-        let {length} = Object.keys(variableToResourceDefinitions[name][variableName]);
+        let keyToResourceDefinitionMap = variableToResourceDefinitions[collectionName][variableName];
+        let {length} = Object.keys(variableToResourceDefinitions[collectionName][variableName]);
         delete keyToResourceDefinitionMap[resourceDefinitionsIndexKey];
         
         if(length === 1) {
-          delete variableToResourceDefinitions[name][variableName];
+          delete variableToResourceDefinitions[collectionName][variableName];
         }
       });
     }
@@ -40,14 +44,14 @@ export const generalApi = {
     mergeWith(this.methodsParams, _methodsParams, paramsMerger);
   },
   
-  setPath(pathInfo, internal = false, truncateExtras = false) {
+  updatePathTemplate(pathInfo, internal = false, truncateExtras = false) {
     let {resourceDefinition} = this;
-    let {pathVariableNames, path, setPath} = resourceDefinition;
+    let {pathVariableNames, path, pathTemplate} = resourceDefinition;
     let {pathVariablesToIndices = {}, resourceNameFull} = resourceDefinition;
     let {vars = {}, extras = []} = pathInfoNormalizer(pathInfo);
     let providedVariableNames = Object.keys(vars);
     let unknowns = difference(providedVariableNames, pathVariableNames);
-    let activePath = setPath.slice();
+    let activePath = pathTemplate.slice();
 
     if(unknowns.length) {
       let message =  `resource path for '${resourceNameFull}' does not include `;
@@ -77,7 +81,6 @@ export const generalApi = {
       return activePath;
     }
     
-    resourceDefinition.setPath = activePath;
-    Object.assign(resourceDefinition, {setPath: activePath});
+    resourceDefinition.pathTemplate = activePath;
   }
 };
