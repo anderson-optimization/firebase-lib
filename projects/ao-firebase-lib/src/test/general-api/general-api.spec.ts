@@ -2,6 +2,7 @@ import {libraryName, resourceCollections}  from '../../lib/_lib/vars'
 import {variableToResourceDefinitions}     from '../../lib/resources-apis-builder/_lib/resources-apis-builder-vars';
 import {firebaseLibInitializerForFirebase} from '../_fixtures/initializers/firebase-lib-initializer-for-firebase';
 import {namespace}                         from './_fixtures/namespace-general';
+import {namespace as namespaceForParams}   from './_fixtures/namespace-general-params';
 
 describe('General Resource Api', () => {
   let resources;
@@ -53,13 +54,56 @@ describe('General Resource Api', () => {
       resources.teams.teamConfig.removeFromVariablesIndex();
       expect(variableToResourceDefinitions.general.$configId).toBe(undefined);
     });
+    
+    it('deletes variable store only for global variables', () => {
+      resources.teams.teamNoRemovalFromIndex.removeFromVariablesIndex();
+    });
   });
 
-  describe('setMethodsParams()', () => {
+  describe('Presetting Method Parameters', () => {
+    let resources;
     
+    beforeAll(async () => {
+      let methodsParams = {
+        set: {options: {returnData: ['key']}},
+        get: {options: {returnData: ['snapshot']}}
+      };
+      
+      firebaseLibInitializerForFirebase('general-params', namespaceForParams, methodsParams);
+      resources = resourceCollections['general-params'];
+      await resources.teams.set(null, teams);
+    });
+    
+    describe('setMethodsParams()', async () => {
+      beforeAll(() => {
+        resources.teamsParams.setMethodsParams({
+          get: {options: {returnData: ['value']}}
+        });        
+      });
+      
+      it('gets snapshot per top-level configs method param settings', async () => {
+        let {snapshot} = await resources.teams.get(1);
+        expect(snapshot.val()).toEqual(teams[1]);
+      });
+      
+      it('receives value per resource level override', async () => {
+        let {value} = await resources.teamsParams.get(1);
+        expect(value).toEqual(teams[1]);
+      });
+      
+      it('obtains ref per method call override', async () => {
+        let {ref} = await resources.teamsParams.get({path: 1, options: {returnData: ['ref']}});
+        ref.once('value').then((snapshot) => expect(snapshot.val()).toEqual(teams[1]));
+      });
+      
+      it('pulls key per configs level settings', async () => {
+        let {key} = await resources.teams.set(4, {name: 'team 4'});
+        expect(key).toBe('4');
+      });
+    });
   });
   
-  describe('setPath()', () => {
-    it(`is tested in Firebase Api's configurable path section`, () => {});
+  describe('updatePathTemplate()', () => {
+    it(`is tested in its own Variable Resource Paths section`, () => {});
   })
 });

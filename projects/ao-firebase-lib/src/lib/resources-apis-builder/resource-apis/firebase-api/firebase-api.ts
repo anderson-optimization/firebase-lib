@@ -41,7 +41,7 @@ export const firebaseApi = {
   
   remove(...params) {
     let reconciledParams = reconcileParamsWithPresets(this, 'remove', params);
-    let {path, query, options = {} as any} = reconciledParams;
+    let {path, options = {} as any} = reconciledParams;
     let ref = reconcilePathToRef(this, path, options);
     let {onComplete} = options;
     
