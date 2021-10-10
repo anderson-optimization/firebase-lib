@@ -43,7 +43,7 @@ describe('AngularFirebase Api', () => {
       let params = {method: 'snapshotChanges'};
       let subscription = resources.cities.list(params).subscribe((snapshot) => {
         let [{payload}] = snapshot.filter((entry) => entry.key === 'knx');
-        expect(payload.val()).toEqual({name: 'Knoxville', state: 'TN'});
+        expect(payload.val()).toEqual(citiesData.knx);
         subscription.unsubscribe();
         done();
       });

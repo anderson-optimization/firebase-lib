@@ -110,7 +110,7 @@ describe('Variable Resource Paths', () => {
       expect(() => resources.setPathVariables('$incorrect', '')).toThrow(error);
     });
 
-    it('allows same variable in a path, but registers resource definition only once', () => {
+    it('allows same variable multiple times in a path, but registers resource definition only once', () => {
       let ids = Object.keys(variableToResourceDefinitions['resource-paths'].$someId);
       expect(ids.length).toBe(1);
     });
