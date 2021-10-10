@@ -8,5 +8,5 @@ export function firebaseLibInitializerForFirebase(collectionName, namespace, met
   let database = firebase.database(app);
   
   firebase.setLogLevel('silent')
-  resourcesApisFactory({collectionName, database, namespace,methodsParams});
+  resourcesApisFactory({collectionName, database, namespace, methodsParams});
 }
