@@ -7,7 +7,7 @@ import {variableToResourceDefinitions} from '../../_lib/resources-apis-builder-v
 import {resourceApiBuilder}            from '../../resource-api-builder/resource-api-builder';
 import {paramsMerger}                  from '../_lib/params-merger';
 import {difference}                    from './_lib/general-api-utils';
-import {pathInfoNormalizer}            from './path-setting/path-setting';
+import {pathInfoNormalizer}            from './path-normalizer/path-normalizer';
 
 export const generalApi = {
   clearPathTemplate() {
