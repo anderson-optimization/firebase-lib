@@ -54,7 +54,7 @@ export const generalApi = {
     let activePath = pathTemplate.slice();
 
     if(unknowns.length) {
-      let message =  `resource path for '${resourceNameFull}' does not include `;
+      let message =  `resource path for '${resourceNameFull}' does not define `;
           message += `the following variables: ${unknowns.join(', ')}`;
       
       error(message);

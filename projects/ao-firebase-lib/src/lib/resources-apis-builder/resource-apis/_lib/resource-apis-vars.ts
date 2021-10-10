@@ -1,7 +1,7 @@
 const angularMethodParams = ['path', 'query', 'method', 'eventTypes', 'options'];
 const mutatorParams = ['path', 'value', 'options'];
 
-export const methodToParams = {
+export const methodToParamNames = {
   get: ['path', 'query', 'options'],
   push: mutatorParams,
   set: mutatorParams,

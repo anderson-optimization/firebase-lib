@@ -27,7 +27,7 @@ describe('Variable Resource Paths', () => {
     
     it('errors if resource is accessed and incorrect path variables are specified', () => {
       let message  = `${libraryName}: resource path for 'users.userInfoVars' does not `;
-          message += `include the following variables: $incorrect`;
+          message += `define the following variables: $incorrect`;
       let error = new Error(message);
       expect(() => resources.users.userInfoVars.get([['$incorrect', false]])).toThrow(error);
     });

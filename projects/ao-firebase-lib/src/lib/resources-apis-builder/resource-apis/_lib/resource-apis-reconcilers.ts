@@ -1,10 +1,10 @@
 import isPlainObject      from 'lodash.isplainobject';
-import mergeWith          from 'lodash.mergewith';
-import {error}            from '../../../_lib/utils';
-import {getAndSetIfNil}   from '../../_lib/resources-apis-builder-utils';
-import {variablePrefixes} from '../../_lib/resources-apis-builder-vars';
-import {paramsMerger}     from './params-merger';
-import {methodToParams}   from './resource-apis-vars';
+import mergeWith            from 'lodash.mergewith';
+import {error}              from '../../../_lib/utils';
+import {getAndSetIfNil}     from '../../_lib/resources-apis-builder-utils';
+import {variablePrefixes}   from '../../_lib/resources-apis-builder-vars';
+import {paramsMerger}       from './params-merger';
+import {methodToParamNames} from './resource-apis-vars';
 
 function assertPathIsValid(path, {resourceNameFull}) {
   let variables = path.reduce((variables, part) => {
@@ -37,7 +37,7 @@ function normalizeParams(params, paramNames) {
 }
 
 export function reconcileParamsWithPresets(api, method, params) {
-  let paramNames = methodToParams[method];
+  let paramNames = methodToParamNames[method];
   let configsMethodsParams = getAndSetIfNil(api.configs, 'methodsParams', {});
   let {[method]: configsMethodParams = {}} = configsMethodsParams as any;
   let {[method]: resourceMethodParams = {}} = api.methodsParams as any;

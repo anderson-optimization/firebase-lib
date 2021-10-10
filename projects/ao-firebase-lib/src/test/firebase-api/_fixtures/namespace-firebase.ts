@@ -3,9 +3,7 @@ export const namespace = {
   
   users: {
     userInfo: {
-      path: 'users',
-      
-      hobbies: ['hobbies']
+      path: 'users'
     }
   },
   
