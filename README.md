@@ -2,14 +2,14 @@
 
 ### Table of Contents
 
-* [Introduction](./docs/00-introduction.md)
-* [Usage](./docs/01-installation.md)
-  * [Library Installation](./docs/01-installation)
-  * [Creating Resource Definitions](./docs/02-creating-resource-definitions.md)
-  * [Instantiating Resources](./docs/03-instantiating-resources.md)
-    * [Instantiating for Firebase API](./docs/04-instantiating-for-firebase-api.md)
-    * [Instantiating for Angular Firebase API](./docs/05-instantiating-for-firebase-api.md)
-    * [Instantiation Examples]('./docs/06-instantiation-examples.md')
+* [Introduction](./docs/introduction.md)
+* [Usage](./docs/installation.md)
+  * [Library Installation](./docs/installation)
+  * [Creating Resource Definitions](./docs/creating-resource-definitions.md)
+  * [Instantiating Resources](./docs/instantiating-resources.md)
+    * [Instantiating for Firebase API](./docs/instantiating-for-firebase-api.md)
+    * [Instantiating for Angular Firebase API](./docs/instantiating-for-firebase-api.md)
+    * [Instantiation Examples]('./docs/instantiation-examples.md')
   * [Interacting with Database]()
 * [Development]()
   * [Prerequisites]()

@@ -360,5 +360,4 @@ contribution to repo
 * detailed documentation if appropriate
 
 
-[a]: https://github.com/angular/angularfire
-[b]: https://firebase.google.com/docs/reference/js/v8/firebase
+
