@@ -33,7 +33,7 @@ resource instances are no longer needed.
 
 ---
 
-[Table of Contents](../README.md) :dolphin:
+[Table of Contents](../README.md) :palm_tree:
 [Next (Usage - Installation)](./01-usage-installation.md)
 
 [a]: https://github.com/angular/angularfire
