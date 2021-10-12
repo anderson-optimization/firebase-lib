@@ -2,10 +2,12 @@
 
 ### Instantiating Resources for Firebase API
 
-NOTE: At this time `firebase-lib` uses compatibility layer of version 9 of
+At this time `firebase-lib` is tested with compatibility layer of version 9 of
 Firebase API.  As the dependency becomes more documented, the appropriate
-changes will be made to this documentation.  Regardless of the API version used
-the general process of instantiating resources should remain the same.
+changes will be made to this documentation.  Regardless of the API version used,
+the general process of instantiating resources should remain the same.  Whenever
+just the Firebase API is used with the library, naturally, AngularFireDatabase
+methods will be excluded from the resource api.
 
 **1. Include dependencies**
 ```javascript
