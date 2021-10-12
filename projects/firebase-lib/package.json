@@ -1,9 +1,14 @@
 {
-  "name": "firebase-lib",
-  "version": "0.0.1",
+  "name": "@anderson-optimization/firebase-lib",
+  "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
-    "@angular/core": "^12.2.0"
+    "@angular/core": "^12.2.0",
+    "firebase": "^9.1.0",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.isplainobject": "^4.0.6",
+    "lodash.mergewith": "^4.6.2",
+    "lodash.omit": "^4.5.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

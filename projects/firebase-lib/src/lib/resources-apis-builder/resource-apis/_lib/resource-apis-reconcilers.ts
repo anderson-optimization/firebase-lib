@@ -23,7 +23,7 @@ export function reconcileParamsWithPresets(api, method, params) {
   let paramNames = methodToParamNames[method];
   let configsMethodsParams = getAndSetIfNil(api.configs, 'methodsParams', {});
   let {[method]: configsMethodParams = {}} = configsMethodsParams as any;
-  let {[method]: resourceMethodParams = {}} = api.methodsParams as any;
+  let {[method]: resourceMethodParams = {}} = api.resourceDefinition.methodsParams as any;
   params = normalizeParams(params, paramNames);
   
   return mergeWith({}, configsMethodParams, resourceMethodParams, params, paramsMerger);

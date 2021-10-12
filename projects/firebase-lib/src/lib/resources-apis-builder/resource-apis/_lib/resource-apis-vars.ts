@@ -1,4 +1,4 @@
-const angularMethodParams = ['path', 'query', 'method', 'eventTypes', 'options'];
+const angularMethodParams = ['path', 'query', 'observableMethod', 'eventTypes', 'options'];
 const mutatorParams = ['path', 'value', 'options'];
 
 export const methodToParamNames = {

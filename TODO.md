@@ -3,7 +3,6 @@
 * think about getting rid of proxy and just bind functions to this
 * get rid of as much lodash as possible
 * make sure correct dependencies are used
-* allowing string variables /users/${some}config/${some}
 
 ## DONEs
 
@@ -14,3 +13,4 @@
 * in namespace-firebase there is a path with two global vars, have an explicit test for that
 * rewrite configurable path tests
 * for params merging pick out just the params used by each method
+* allowing string variables /users/${some}config/${some}

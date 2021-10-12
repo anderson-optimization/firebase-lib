@@ -24,12 +24,15 @@ export function resourcesApisFactory(configs) {
   }
   
   function ResourceApi(resourceDefinition) {
+    if(!resourceDefinition.methodsParams) {
+      resourceDefinition.methodsParams = {};
+    }
+    
     Object.assign(this, {
       configs,
       angularDatabase,
       database,
-      resourceDefinition,
-      methodsParams: {}
+      resourceDefinition
     });
   }
 

@@ -43,7 +43,7 @@ export const generalApi = {
   },
   
   setMethodsParams(_methodsParams) {
-    mergeWith(this.methodsParams, _methodsParams, paramsMerger);
+    mergeWith(this.resourceDefinition.methodsParams, _methodsParams, paramsMerger);
   },
   
   updatePathTemplate(_path, internal = false, truncateExtras = false) {

@@ -96,6 +96,11 @@ describe('General Resource Api', () => {
         ref.once('value').then((snapshot) => expect(snapshot.val()).toEqual(teams[1]));
       });
       
+      it('returns ref per resource definition methods params setting', async () => {
+        let {ref} = await resources.teamsParamsPreset.get({path: 2});
+        ref.once('value').then((snapshot) => expect(snapshot.val()).toEqual(teams[2]));
+      });
+      
       it('pulls key per configs level settings', async () => {
         let {key} = await resources.teams.set(4, {name: 'team 4'});
         expect(key).toBe('4');

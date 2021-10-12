@@ -40,7 +40,7 @@ describe('AngularFirebase Api', () => {
     });
 
     it('grabs an array of snapshots', (done) => {
-      let params = {method: 'snapshotChanges'};
+      let params = {observableMethod: 'snapshotChanges'};
       let subscription = resources.cities.list(params).subscribe((snapshot) => {
         let [{payload}] = snapshot.filter((entry) => entry.key === 'knx');
         expect(payload.val()).toEqual(citiesData.knx);
@@ -75,7 +75,7 @@ describe('AngularFirebase Api', () => {
     });
     
     it('fetches a snapshot', (done) => {
-      let params = {path: 'knx', method: 'snapshotChanges'};
+      let params = {path: 'knx', observableMethod: 'snapshotChanges'};
       let subscription = resources.cities.object(params).subscribe((snapshot) => {
         expect(snapshot.payload.val()).toEqual(citiesData.knx);
         subscription.unsubscribe();
