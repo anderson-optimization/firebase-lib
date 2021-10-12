@@ -3,23 +3,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ao-firebase-lib": {
+    "firebase-lib": {
       "projectType": "library",
-      "root": "projects/ao-firebase-lib",
-      "sourceRoot": "projects/ao-firebase-lib/src",
+      "root": "projects/firebase-lib",
+      "sourceRoot": "projects/firebase-lib/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/ao-firebase-lib/ng-package.json"
+            "project": "projects/firebase-lib/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ao-firebase-lib/tsconfig.lib.prod.json"
+              "tsConfig": "projects/firebase-lib/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ao-firebase-lib/tsconfig.lib.json"
+              "tsConfig": "projects/firebase-lib/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,17 +27,17 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ao-firebase-lib/src/test.ts",
-            "tsConfig": "projects/ao-firebase-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/ao-firebase-lib/karma.conf.js",
+            "main": "projects/firebase-lib/src/test.ts",
+            "tsConfig": "projects/firebase-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/firebase-lib/karma.conf.js",
             "codeCoverageExclude": [
-              "projects/ao-firebase-lib/src/test.ts",
-              "projects/ao-firebase-lib/src/test/**/_fixtures/*.ts"
+              "projects/firebase-lib/src/test.ts",
+              "projects/firebase-lib/src/test/**/_fixtures/*.ts"
             ]
           }
         }
       }
     }
   },
-  "defaultProject": "ao-firebase-lib"
+  "defaultProject": "firebase-lib"
 }
