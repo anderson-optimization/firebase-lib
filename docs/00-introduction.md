@@ -35,3 +35,6 @@ resource instances are no longer needed.
 
 [Table of Contents](../README.md) :dolphin:
 [Next (Usage - Installation)](./01-usage-installation.md)
+
+[a]: https://github.com/angular/angularfire
+[b]: https://firebase.google.com/docs/reference/js/v8/firebase
