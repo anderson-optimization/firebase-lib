@@ -47,11 +47,11 @@ resources === resourceCollections['my-resources']; //true
 ```
 
 NOTE: `methodsParams` parameter can also be added if there is a need to preset
-method parameters at the application level.  The generated `resources` can be
+methods' parameters at the application level.  The generated `resources` can be
 also be accessed from `resourceCollections['my-resources']`.
 
 ---
 
 [Previous (Instantiating Resources)](./03-instantiating-resources.md) :palm_tree:
 [Table of Contents](../README.md) :palm_tree:
-[Next (Instantiating Resources for Angular API)](./05-instantiating-resources-for-angular-api.md)
+[Next (Instantiating Resources for Angular API)](./05-instantiating-for-angular-api.md)
