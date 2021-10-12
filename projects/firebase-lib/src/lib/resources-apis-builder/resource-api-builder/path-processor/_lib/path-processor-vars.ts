@@ -1,2 +1,2 @@
-export const varNameRx = /\{([^\}]*)\}/;
+export const varNameRx = /\{([^\}]+)\}/;
 export const varsRx = /((?:\$|\#)\{(?:[^\}]+)\})/g;
