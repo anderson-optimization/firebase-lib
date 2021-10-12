@@ -183,7 +183,7 @@ name.  This way, after the resources are generated, they can be accessed
 anywhere in the application simply by including and referencing an appropriate
 part of `resourceCollections`.
 
-#### Instantiating Using Firebase API
+#### Instantiating for Firebase API
 
 NOTE: At this time `firebase-lib` uses compatibility layer of version 9 of
 Firebase API.  As the dependency becomes more documented, the appropriate
@@ -195,6 +195,7 @@ the general process of instantiating resources should remain the same.
 import firebase               from 'firebase/compat/app';
 import                             'firebase/compat/database';
 import {resourcesApisFactory} from '@anderson-optimization/firebase-lib';
+import {resourceCollections}  from '@anderson-optimization/firebase-lib';
 import {resourceDefinitions}  from '<your resource definitions file>';
 ```
 
@@ -223,13 +224,14 @@ let database = firebase.database(app);
 ```javascript
 let resourcesParams = {collectionName: 'my-resources', database, resourceDefinitions};
 let resources = resourcesApisFactory(resourcesParams);
+resources === resourceCollections['my-resources']; //true
 ```
 
 NOTE: `methodsParams` parameter can also be added if there is a need to preset
 method parameters at the application level.  The generated `resources` can be
 also be accessed from `resourceCollections['my-resources']`.
 
-#### Instantiating Using Angular Firebase API
+#### Instantiating for Angular Firebase API
 
 Instantiation process for Angular applications is almost the same as above.  The
 only difference is that instead of supplying Firebase API's database instance,
@@ -245,8 +247,8 @@ import {BrowserModule}             from '@angular/platform-browser';
 import {AngularFireModule}         from '@angular/fire/compat';
 import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
 import {AngularFireDatabase}       from '@angular/fire/compat/database';
-import {resourcesApisFactory}      from '../../../firebase-lib/src/public-api';
-import {resourceCollections}       from '../../../firebase-lib/src/public-api';
+import {resourcesApisFactory}      from '@anderson-optimization/firebase-lib';
+import {resourceCollections}       from '@anderson-optimization/firebase-lib';
 import {AppComponent}              from './app.component';
 import {firebaseConfigs}           from './configs/firebase-configs';
 import {resourceDefinitions}       from './configs/resource-definitions';
@@ -293,6 +295,8 @@ examples.
 
 ### Interacting with Database
 
+After resource i
+
 ### Development
 
 #### Process and Contributing
@@ -303,11 +307,47 @@ examples.
 
 #### Firebase API Methods
 
+get()
+
+push()
+
+remove()
+
+set()
+
+transaction()
+
+update()
+
 #### AngularFireDatabase API Methods
+
+list()
+
+object()
 
 #### General Resource Methods
 
+clearPathTemplate()
+
+clone()
+
+removeFromVariablesIndex()
+
+setMethodsParams()
+
+updatePathTemplate()
+
 #### General Top-Level Methods
+
+getAngularDatabase()
+
+getDatabase()
+
+getUniqueKey()
+
+removeFromVariablesIndex()
+
+setPathVariables()
 
 
 
