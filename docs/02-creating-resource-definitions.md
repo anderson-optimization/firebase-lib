@@ -44,7 +44,7 @@ export const resourceDefinitions = {
 Related resources can be grouped within a resource definition.  The latter may
 or may not be a resource itself.
 
-NOTE: For the last example, the paths are absolute!  `firebase-lib` will **not**
+NOTE: The path for a resource is absolute!  `firebase-lib` will **not**
 concatenate nested paths with the paths of namespacing resources.
 
 **Basic namespacing**
@@ -125,6 +125,6 @@ export const resourceDefinitions = {
 
 ---
 
-[Previous (Installation)](./installation.md) :palm_tree:
+[Previous (Installation)](./01-installation.md) :palm_tree:
 [Table of Contents](../README.md) :palm_tree:
-[Next (Instantiating Resources)](./instantiating-resources.md)
+[Next (Instantiating Resources)](./03-instantiating-resources.md)

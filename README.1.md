@@ -183,7 +183,7 @@ name.  This way, after the resources are generated, they can be accessed
 anywhere in the application simply by including and referencing an appropriate
 part of `resourceCollections`.
 
-#### Instantiating for Firebase API
+#### Instantiating Resources for Firebase API
 
 NOTE: At this time `firebase-lib` uses compatibility layer of version 9 of
 Firebase API.  As the dependency becomes more documented, the appropriate
@@ -231,7 +231,7 @@ NOTE: `methodsParams` parameter can also be added if there is a need to preset
 method parameters at the application level.  The generated `resources` can be
 also be accessed from `resourceCollections['my-resources']`.
 
-#### Instantiating for Angular Firebase API
+#### Instantiating Resources for Angular Firebase API
 
 Instantiation process for Angular applications is almost the same as above.  The
 only difference is that instead of supplying Firebase API's database instance,
@@ -297,13 +297,28 @@ examples.
 
 After resource i
 
+namespacing 
+
+method parameters
+
+
 ### Development
 
-#### Prerequisites
+#### Setup
 
-#### Process and Contributing
+firebase-tools
 
-#### Publishing a Package to Github
+installing firebase emulators
+
+firebase init
+
+firebase init emulators
+
+firebase emulators:start --project firebase-lib for ui
+
+#### Publishing Npm Package to Github
+
+#### Contributing
 
 ### Application Programming Interfaces (APIs)
 
