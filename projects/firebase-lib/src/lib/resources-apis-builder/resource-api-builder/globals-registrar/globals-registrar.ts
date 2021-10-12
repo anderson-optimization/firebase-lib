@@ -2,16 +2,16 @@ import {getAndSetIfNil}                from '../../_lib/resources-apis-builder-u
 import {variableToResourceDefinitions} from '../../_lib/resources-apis-builder-vars';
 
 export function globalsRegistrar(resourceDefinition, configs) {
-  let {globalVariables} = resourceDefinition;
+  let {globalVariableNames} = resourceDefinition;
   
-  if(globalVariables) {
+  if(globalVariableNames) {
     let {collectionName, database} = configs;
     let resourceDefinitionsIndexKey = database.ref().push().key;
     let params = [variableToResourceDefinitions, collectionName, {}] as any;
     let _variableToResourceDefinitions = getAndSetIfNil(...params);
     Object.assign(resourceDefinition, {resourceDefinitionsIndexKey});
   
-    globalVariables.forEach((variableName) => {
+    globalVariableNames.forEach((variableName) => {
       let params = [_variableToResourceDefinitions, variableName, {}];
       let resourceDefinitions = getAndSetIfNil(...params);
       resourceDefinitions[resourceDefinitionsIndexKey] = resourceDefinition;

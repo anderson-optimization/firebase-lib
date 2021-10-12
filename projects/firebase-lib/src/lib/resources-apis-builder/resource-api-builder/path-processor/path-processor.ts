@@ -7,7 +7,7 @@ export function pathProcessor(resourceDefinition, {collectionName, database}) {
   let {path, pathTemplate} = resourceDefinition;
   let pathVariablesToIndices = {};
   let pathVariableNames = [];
-  let globalVariables = [];
+  let globalVariableNames = [];
   
   if(!Array.isArray(path)) {
     path = path.split('/');
@@ -26,8 +26,8 @@ export function pathProcessor(resourceDefinition, {collectionName, database}) {
             part = varIndicator + part;
             let variableIndices = getAndSetIfNil(pathVariablesToIndices, part, []);
             
-            if(varIndicator === globalVariablePrefix && !globalVariables.includes(part)) {
-              globalVariables.push(part);
+            if(varIndicator === globalVariablePrefix && !globalVariableNames.includes(part)) {
+              globalVariableNames.push(part);
             }
             
             if(!pathVariableNames.includes(part)) {
@@ -53,8 +53,8 @@ export function pathProcessor(resourceDefinition, {collectionName, database}) {
 
   Object.assign(resourceDefinition, {path, pathTemplate: cloneDeep(path)});
 
-  if(globalVariables.length) {
-    Object.assign(resourceDefinition, {globalVariables});
+  if(globalVariableNames.length) {
+    Object.assign(resourceDefinition, {globalVariableNames});
   }
 
   if(pathVariableNames.length) {
