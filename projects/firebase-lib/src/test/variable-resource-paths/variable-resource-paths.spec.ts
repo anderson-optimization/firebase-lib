@@ -49,7 +49,7 @@ describe('Variable Resource Paths', () => {
     });
   });
 
-  describe('presetting non-variable path extras', () => {
+  describe('presetting non-variable sub-paths', () => {
     it('sets persistent extra sub-path', async () => {
       resources.users.userInfoExtras.updatePathTemplate('c');
       let {value} = await resources.users.userInfoExtras.get();
@@ -70,34 +70,34 @@ describe('Variable Resource Paths', () => {
       afterEach(() => resources.users.userInfoData.clearPathTemplate());
       
       it('sets persistent prefilled incomplete path', async () => {
-        let path = {vars: {'#id': 'a'}, extras: ['last']};
+        let path = {vars: {'#id': 'a'}, subpaths: ['last']};
         resources.users.userInfoData.updatePathTemplate(path);
         expect(() => resources.users.userInfoData.set()).toThrow();
       });
       
       it('assigns persistent prefilled complete path', async () => {
-        let path = {vars: {'#id': 'a', '#name': 'name'}, extras: ['last']};
+        let path = {vars: {'#id': 'a', '#name': 'name'}, subpaths: ['last']};
         resources.users.userInfoData.updatePathTemplate(path);
         let {value} = await resources.users.userInfoData.get();
         expect(value).toBe(usersData.a.name.last);
       });
       
       it('initializers a path whose variable parts can be altered at method call', async () => {
-        let path = {vars: {'#id': 'b', '#name': 'name'}, extras: ['last']};
+        let path = {vars: {'#id': 'b', '#name': 'name'}, subpaths: ['last']};
         resources.users.userInfoData.updatePathTemplate(path);
         let {value} = await resources.users.userInfoData.get({path: {vars: {'#id': 'c'}}});
         expect(value).toBe(usersData.c.name.last);
       });
       
       it('writes a template whose non-variable part can be changed at method call', async () => {
-        let path = {vars: {'#id': 'a', '#name': 'name'}, extras: ['last']};
+        let path = {vars: {'#id': 'a', '#name': 'name'}, subpaths: ['last']};
         resources.users.userInfoData.updatePathTemplate(path);
         let {value} = await resources.users.userInfoData.get('first');
         expect(value).toBe(usersData.a.name.first);
       });
       
       it('creates a path template whose non-variable part can be truncated', async () => {
-        let path = {vars: {'#id': 'c', '#name': 'name'}, extras: ['last']};
+        let path = {vars: {'#id': 'c', '#name': 'name'}, subpaths: ['last']};
         resources.users.userInfoData.updatePathTemplate(path);
         let {value} = await resources.users.userInfoData.get({options: {removeSubpaths: true}});
         expect(value).toEqual(usersData.c.name);
@@ -107,12 +107,25 @@ describe('Variable Resource Paths', () => {
     describe('clearPathTemplate()', () => {
       it('assigns original path as the template', async () => {
         let path = {vars: {'#id': 'a', '#name': 'name'}};
-        resources.users.userInfoData.updatePathTemplate(path);
-        let {value} = await resources.users.userInfoData.get();
+        resources.users.userInfoClearing.updatePathTemplate(path);
+        let {value} = await resources.users.userInfoClearing.get();
         expect(value).toEqual(usersData.a.name);
         
-        resources.users.userInfoData.clearPathTemplate();
-        expect(() => resources.users.userInfoData.get()).toThrow();
+        resources.users.userInfoClearing.clearPathTemplate();
+        expect(() => resources.users.userInfoClearing.get()).toThrow();
+      });
+    });
+    
+    describe('clearSubpaths()', () => {
+      it('removes subpaths from the template', async () => {
+        let path = {vars: {'#id': 'b', '#name': 'name'}, subpaths: ['first']};
+        resources.users.userInfoClearing.updatePathTemplate(path);
+        let {value} = await resources.users.userInfoClearing.get();
+        expect(value).toEqual(usersData.b.name.first);
+        
+        resources.users.userInfoClearing.clearSubpaths();
+        ({value} = await resources.users.userInfoClearing.get());
+        expect(value).toEqual(usersData.b.name);
       });
     });
   });

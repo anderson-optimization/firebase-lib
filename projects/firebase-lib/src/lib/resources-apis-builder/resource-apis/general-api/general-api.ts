@@ -16,6 +16,12 @@ export const generalApi = {
     this.resourceDefinition.pathTemplate = cloneDeep(path);
   },
   
+  clearSubpaths() {
+    let {path, pathTemplate} = this.resourceDefinition;
+    pathTemplate = pathTemplate.slice(0, path.length);
+    Object.assign(this.resourceDefinition, {pathTemplate});
+  },
+  
   clone() {
     let {configs, resourceDefinition} = this;
     let omits = ['resourceApi', 'resourceDefinitionsIndexKey'];
@@ -50,7 +56,7 @@ export const generalApi = {
     let {resourceDefinition} = this;
     let {pathVariableNames = [], path, pathTemplate} = resourceDefinition;
     let {pathVariablesToIndices = {}, resourceNameFull} = resourceDefinition;
-    let {vars = {}, extras = []} = pathNormalizer(_path);
+    let {vars = {}, subpaths = []} = pathNormalizer(_path);
     let providedVariableNames = Object.keys(vars);
     let unknowns = difference(providedVariableNames, pathVariableNames);
     let activePath = cloneDeep(pathTemplate);
@@ -106,8 +112,8 @@ export const generalApi = {
       });
     });
     
-    if(extras.length) {
-      activePath.splice(path.length, Infinity, ...extras);
+    if(subpaths.length) {
+      activePath.splice(path.length, Infinity, ...subpaths);
     } else if(removeSubpaths) {
       activePath.splice(path.length);
     }

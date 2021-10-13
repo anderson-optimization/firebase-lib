@@ -10,20 +10,20 @@ export function pathNormalizer(pathInfo) {
         } else if(Array.isArray(part) && variablePrefixes.includes(part[0][0])) {
           pathInfo.vars[part[0]] = part[1];
         } else {
-          pathInfo.extras.push(part);
+          pathInfo.subpaths.push(part);
         }
         
         return pathInfo;
-      }, {vars: {}, extras: []});
+      }, {vars: {}, subpaths: []});
     } else if(pathInfo) {
-      pathInfo = {extras: [pathInfo]};
+      pathInfo = {subpaths: [pathInfo]};
     }
   } else {
-    let {vars, extras} = pathInfo;
+    let {vars, subpaths} = pathInfo;
     
     if(!vars) {
-      delete pathInfo.extras;
-      pathInfo = {vars: pathInfo, extras};
+      delete pathInfo.subpaths;
+      pathInfo = {vars: pathInfo, subpaths};
     }
   }
   
