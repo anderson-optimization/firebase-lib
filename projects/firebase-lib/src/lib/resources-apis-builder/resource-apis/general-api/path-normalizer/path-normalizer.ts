@@ -21,6 +21,11 @@ export function pathNormalizer(pathInfo) {
   } else {
     let {vars, subpaths} = pathInfo;
     
+    if(subpaths && !Array.isArray(subpaths)) {
+      subpaths = [subpaths];
+      Object.assign(pathInfo, {subpaths});
+    }
+    
     if(!vars) {
       delete pathInfo.subpaths;
       pathInfo = {vars: pathInfo, subpaths};
