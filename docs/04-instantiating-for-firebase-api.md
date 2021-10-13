@@ -9,7 +9,7 @@ the general process of instantiating resources should remain the same.  Whenever
 just the Firebase API is used with the library, naturally, AngularFireDatabase
 methods will be excluded from the resource api.
 
-**1. Include dependencies**
+#### Include dependencies
 ```javascript
 import firebase               from 'firebase/compat/app';
 import                             'firebase/compat/database';
@@ -18,7 +18,7 @@ import {resourceCollections}  from '@anderson-optimization/firebase-lib';
 import {resourceDefinitions}  from '<your resource definitions file>';
 ```
 
-**2. Specify Firebase Configs**
+#### Specify Firebase Configs
 ```javascript
 let firebaseConfig = {
   apiKey: '<your apiKey>',
@@ -32,13 +32,13 @@ let firebaseConfig = {
 };
 ```
 
-**3. Initialize application and get database object**
+#### Initialize application and get database object
 ```javascript
 let app = firebase.initializeApp(firebaseConfigs);
 let database = firebase.database(app);
 ```
 
-**4. Generate resources**
+#### Generate resources
 
 ```javascript
 let resourcesParams = {collectionName: 'my-resources', database, resourceDefinitions};
