@@ -118,7 +118,7 @@ describe('Variable Resource Paths', () => {
     
     describe('clearSubpaths()', () => {
       it('removes subpaths from the template', async () => {
-        let path = {vars: {'#id': 'b', '#name': 'name'}, subpaths: ['first']};
+        let path = {vars: {'#id': 'b', '#name': 'name'}, subpaths: 'first'};
         resources.users.userInfoClearing.updatePathTemplate(path);
         let {value} = await resources.users.userInfoClearing.get();
         expect(value).toEqual(usersData.b.name.first);

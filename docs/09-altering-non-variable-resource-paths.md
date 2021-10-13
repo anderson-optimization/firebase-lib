@@ -38,8 +38,8 @@ Now, the empty `get()` call will still return `user-id`'s data.  Invoking
 `get()` or any other method on `users` with a new path will take precedence over
 the path template.  Executing a data method with the option to
 `{removeSubpaths: true}` will ignore additions to the template during that call.
-A path can be reset to its original via `clearPathTemplate()` call.  And, just
-the subpath can be removed via `clearSubpaths()`.
+A path can be reset to its original via `clearPathTemplate()`.  And, just the
+subpaths can be removed via `clearSubpaths()`.
 
 NOTE: A measure of caution should be exercised when using path templates.
 Assigning sub-paths during method invocation, despite being slightly more

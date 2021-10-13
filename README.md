@@ -17,6 +17,8 @@
     * [Altering Variable Resource Paths](./docs/10-altering-variable-resource-paths.md)
     * [Cloning Resources]()
     * [Other Interactions]()
+    * for method descriptions see api and tests
+    * set Methods params
 * [Development]()
   * [Development Setup]()
   * [Making Changes]()
