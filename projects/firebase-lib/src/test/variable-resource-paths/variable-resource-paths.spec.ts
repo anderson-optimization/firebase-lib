@@ -49,6 +49,14 @@ describe('Variable Resource Paths', () => {
     });
   });
 
+  describe('presetting non-variable path extras', () => {
+    it('sets persistent extra sub-path', async () => {
+      resources.users.userInfoExtras.updatePathTemplate('c');
+      let {value} = await resources.users.userInfoExtras.get();
+      expect(value).toEqual(usersData.c);
+    });
+  });
+
   describe('presetting path variables', () => {
     it('will not save variable values passed during a method call', async () => {
       let path = [['#id', 'b'], ['#name', 'name'], 'first'];

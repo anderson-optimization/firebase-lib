@@ -5,7 +5,7 @@ export const resourceDefinitions = {
       hobbies: ['hobbies-paths'],
       hobbiesVars: ['hobbies-paths', '${uid}']
     },
-    
+    userInfoExtras: 'users-paths',
     userInfoVars: 'users-paths/${id}/#{name}',
     userInfoData: 'users-paths/#{id}/#{name}',
     userInfoGlobal: ['users-paths', '${uid}', '#{name}'],
