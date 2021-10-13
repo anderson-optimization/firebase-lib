@@ -3,8 +3,8 @@ import {reconcilePathToRef, reconcileQueryToRef} from '../../_lib/resource-apis-
 
 export function getBaseAngular(methodName, ...params) {
   let reconciledParams = reconcileParamsWithPresets(this, methodName, params);
-  let {path, query, observableMethod = 'valueChanges', eventTypes} = reconciledParams;
-  let {options = {} as any} = reconciledParams;
+  let {path, query, observableMethod = 'valueChanges'} = reconciledParams;
+  let {eventTypes, options = {} as any} = reconciledParams;
   let ref = reconcilePathToRef(this, path, options);
   
   if(query && methodName === 'list') {

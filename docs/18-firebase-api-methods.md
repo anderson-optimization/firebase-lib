@@ -13,7 +13,7 @@ Parameters
   * removeSubpaths
     * if *true*, will remove subpaths from path template just for this invocation  
   * returnData
-    * any or all of `['key', 'ref', 'value', 'snapshot']`
+    * any or all of `key`, `ref`, `value`, `snapshot`
     * default is `value`
 
 
@@ -37,7 +37,6 @@ Parameters
 * path *(optional)*
 * value
 * options *(optional)*
-  
   * addTimestamps
     * if *true*, will add `created` and `modified` timestamps
     * will include timestamps only if `value` is an object
@@ -50,7 +49,7 @@ Parameters
   * removeSubpaths
     * if *true*, will remove subpaths from path template just for this invocation
   * returnData
-    * any or all of `['key', 'ref', 'value', 'snapshot']`
+    * any or all of `key`, `ref`, `value`, `snapshot`
     * default is `undefined`
 
 Returns  Promise
@@ -103,7 +102,7 @@ Parameters
   * removeSubpaths
     * if *true*, will remove subpaths from path template just for this invocation
   * returnData
-    * any or all of `['key', 'ref', 'value', 'snapshot']`
+    * any or all of `key`, `ref`, `value`, `snapshot`
     * default is `undefined`
 
 Returns  Promise
@@ -134,7 +133,7 @@ Parameters
   * removeSubpaths
     * if *true*, will remove subpaths from path template just for this invocation
   * returnData
-    * any or all of `['key', 'ref', 'value', 'snapshot']`
+    * any or all of `key`, `ref`, `value`, `snapshot`
     * default is `undefined`
 
 Returns  Promise
@@ -173,7 +172,7 @@ Parameters
   * removeSubpaths
     * if *true*, will remove subpaths from path template just for this invocation
   * returnData
-    * any or all of `['key', 'ref', 'value', 'snapshot']`
+    * any or all of `key`, `ref`, `value`, `snapshot`
     * default is `undefined`
 
 Returns  Promise
