@@ -1,6 +1,6 @@
 ## `firebase-lib` Documentation
 
-### Instantiating Resources for Angular Firebase API
+### Instantiating Resources for AngularFireDatabase API
 
 Instantiation process for Angular applications is almost the same as the one for
 Firebase API.  The only difference is instead of supplying Firebase API's

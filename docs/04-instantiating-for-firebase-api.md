@@ -54,4 +54,4 @@ also be accessed from `resourceCollections['my-resources']`.
 
 [Previous (Instantiating Resources)](./03-instantiating-resources.md) :palm_tree:
 [Table of Contents](../README.md) :palm_tree:
-[Next (Instantiating Resources for Angular API)](./05-instantiating-for-angular-api.md)
+[Next (Instantiating Resources for AngularFireDatabase API)](./05-instantiating-for-angular-api.md)
