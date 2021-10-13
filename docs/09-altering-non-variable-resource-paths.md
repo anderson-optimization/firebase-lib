@@ -17,10 +17,10 @@ export const resourceDefinitions = {
 }
 ```
 
-To fetch a specific user, an `id` can be included in a `get()` call as a sub-path
-that will be appended to the resource path.  The new path `users/user-id`
-is generated during the `get()` invocation and will not persist beyond that
-execution.
+To fetch a specific user, a `user-id` can be included in a `get()` call as a
+sub-path that will be appended to the resource path.  The new path
+`users/user-id` is generated during the `get()` invocation and will not persist
+beyond that execution.
 
 ```javascript
 let {value: userInfo} = await resources.users.get('user-id');
