@@ -277,7 +277,6 @@ import {resourceDefinitions}       from './configs/resource-definitions';
         };
         
         let resources = resourcesApisFactory(resourcesParams);
-        console.log(resources === resourceCollections.angular);
       }
     },
     deps: [AngularFireDatabase]
@@ -293,13 +292,16 @@ export class AppModule {}
 database instance and resources.  `firebase-lib`'s tests also provide realistic
 examples.
 
-### Interacting with Database
+### Interacting with Resources
 
-After resource i
+Resource Access
+method parameters
+
+After resource is generated it can be accessed
 
 namespacing 
 
-method parameters
+
 
 
 ### Development
@@ -373,6 +375,3 @@ contribution to repo
 * minimal ES2021 code
 * tests with coverage of 100%
 * detailed documentation if appropriate
-
-
-

@@ -2,11 +2,12 @@
 
 ### Instantiating Resources for Angular Firebase API
 
-Instantiation process for Angular applications is almost the same as above.  The
-only difference is that instead of supplying Firebase API's database instance,
-an `AngularFireDatabase` instance is provided to the `resourcesApisFactory()`.
-Perhaps the best Angular setup approach is to instantiate resources at the
-initialization of the application as follows.
+Instantiation process for Angular applications is almost the same as the one for
+Firebase API.  The only difference is instead of supplying Firebase API's
+database instance, an `AngularFireDatabase` instance is provided to the 
+`resourcesApisFactory()`.  Firebase API's database instance is derived from 
+`AngularFireDatabase` object.  Perhaps the best Angular setup approach is to
+instantiate resources at the initialization of the application as shown below.
 
 **1. Include dependencies**
 
