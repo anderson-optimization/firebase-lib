@@ -2,7 +2,7 @@
 
 ### Altering Variable Resource Paths
 
-#### 1. Declaring Variable Inputs
+#### Declaring Variable Inputs
 
 There are multiple ways to declare variable data to be interpolatable by the
 library.
@@ -59,7 +59,7 @@ let path = {vars: {'$uid': '22343', '#pid': 'p15'}, subpaths: ['subpath-1', 'sub
 (e.g., `${uid}`).  When a variable's value is specified, its indicator consists
 of a global or local sign (`$` or `#`) and a name (e.g., `$uid`).
 
-#### 2. Resource-Level Variable Replacement
+#### Resource-Level Variable Replacement
 
 Variable path replacement for an individual resource can take place during a
 data method invocation or can be permanently preset using `updatePathTemplate()`.
@@ -82,7 +82,7 @@ await resources.projectInfo.set(undefined, value);
 Path template can be reset to the original path by invoking
 `clearPathTemplate()` and subpaths can be removed by calling `clearSubpaths()`.
 
-#### 3. Application-Level Variable Replacement
+#### Application-Level Variable Replacement
 
 Multiple resources can have equal parts that may need repeated replacement.
 These parts can be represented as global variables and then changed.

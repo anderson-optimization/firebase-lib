@@ -8,7 +8,7 @@ parameters for methods that interact with the database.  Anything else included
 in the definition is considered another resource and will be namespaced within
 its parent.
 
-#### 1. Basic resource definition
+#### Basic resource definition
 
 The shorthand way to define an alias is to use resource name as the object
 property and the data path as the value.
@@ -21,7 +21,7 @@ export const resourceDefinitions = {
 };
 ```
 
-#### 2. Basic resource with explicit `path` and `methodsParams`
+#### Basic resource with explicit `path` and `methodsParams`
 
 Whenever methods' parameters are to be preset within a definition, longhand
 declaration is the only one that can be used.
@@ -39,7 +39,7 @@ export const resourceDefinitions = {
 };
 ```
 
-#### 3. Namespaced resources
+#### Namespaced resources
 
 Related resources can be grouped within a resource definition.  The latter may
 or may not be a resource itself.
@@ -72,7 +72,7 @@ export const resourceDefinitions = {
 
 ```
 
-#### 4. Variable-path resources
+#### Variable-path resources
 
 The library allows global and local variables within a path.  Global variables
 begin with a dollar sign (`$`).  Local variables start with a pound sign (`#`).
