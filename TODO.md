@@ -1,18 +1,5 @@
 ## TODOs
 
-* think about getting rid of proxy and just bind functions to this
+* think about getting rid of proxy and just bind functions to namespace object
 * get rid of as much lodash as possible
-* make sure correct dependencies are used
 * for subpaths make sure that 0 value is handled
-
-
-## DONEs
-
-* ResourceApi() could be taken outside of resourceApiBuilder
-* for the above, the paramsArray can be used in method calls instead of actual arrays
-* if path extras are set by setPath() call, then let them stand on next calls (updatePathTemplate())
-* path, setPath, activePath (no just path and pathTemplate, activePath is derived from these)
-* in namespace-firebase there is a path with two global vars, have an explicit test for that
-* rewrite configurable path tests
-* for params merging pick out just the params used by each method
-* allowing string variables /users/${some}config/${some}

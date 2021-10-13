@@ -2,7 +2,102 @@
 
 ### General Top-Level API Methods
 
+##### getAngularDatabase()
 
+Description
+
+* provides `AngularFireDatabase` instance *(if it was provided at the initialization)*
+
+Parameters None
+  
+Returns `AngularFireDatabase` instance
+
+Example
+
+```javascript
+resources.getAngularDatabase();
+```
+
+---
+
+##### getDatabase()
+
+Description
+
+* provides `Firebase` API's database instance
+
+Parameters None
+  
+Returns `Firebase` database instance
+
+Example
+
+```javascript
+resources.getDatabase();
+```
+
+---
+
+##### getUniqueKey()
+
+Description
+
+* generates `Firebase`'s unique 20-character string
+
+Parameters None
+  
+Returns 20-character unique string
+
+Example
+
+```javascript
+resources.getUniqueKey();
+```
+
+---
+
+##### removeFromVariablesIndex()
+
+Description
+
+* clears all references to resource definitions within a collection
+* should be used with caution; once evoked global variables' updates will not work
+
+Parameters None
+  
+Returns `undefined`
+
+Example
+
+```javascript
+resources.removeFromVariablesIndex();
+```
+
+---
+
+##### setPathVariables(variableName, value)
+
+Description
+
+* updates global variables' values across all resources
+
+Parameters
+
+* variableName
+  * the first parameter can be an object of variableNames and values pairs
+* value *(optional)*
+  
+Returns `undefined`
+
+Examples
+
+```javascript
+resources.setPathVariables('$uid', '23432');
+```
+
+```javascript
+resources.setPathVariables({'$uid': '23432', '$tid': 'team22'});
+```
 
 ---
 

@@ -3,7 +3,13 @@
 ### AngularFireDatabase API Methods
 
 ##### list(path, query, observableMethod, eventTypes, options)
- 
+
+Description
+
+* returns an Observable that emits every time specified events are triggered on
+  the data subset  
+* the emitted value is a list/array
+
 Parameters
   
 * path *(optional)*
@@ -32,7 +38,14 @@ let subscription = resources.users.list(params).subscribe((snapshot) => {
 ---
 
 ##### object(path, query, observableMethod, eventTypes, options)
- 
+
+Description
+
+* returns an Observable that emits every time specified events are triggered on
+  the data subset
+* the emitted value is an object
+* the latter is the reason why querying will not work with this method
+
 Parameters
   
 * path *(optional)*

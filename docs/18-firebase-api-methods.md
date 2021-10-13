@@ -3,7 +3,11 @@
 ### Firebase API Methods
 
 ##### get(path, query, options)
- 
+
+Description
+
+* returns requested data
+
 Parameters
   
 * path *(optional)*
@@ -31,6 +35,10 @@ let {ref} = await resources.users.get(path, query, options);
 ---
 
 ##### push(path, value, options)
+
+Description
+
+* adds a new record to a data subset under an auto-generated 20-character key
 
 Parameters
 
@@ -65,7 +73,11 @@ let {value} = await resources.users.push(path, value, options);
 ---
 
 ##### remove(path, options)
- 
+
+Description
+
+* removes the record at the path location
+
 Parameters
   
 * path *(optional)*
@@ -87,6 +99,10 @@ let {ref} = await resources.users.remove(path);
 ---
 
 ##### set(path, value, options)
+
+Description
+
+* adds a new record or completely overrides an existing record
 
 Parameters
 
@@ -118,6 +134,10 @@ let {ref} = await resources.users.set(path, value, options);
 ---
 
 ##### transaction(path, value, options)
+
+Description
+
+* selectively and transactionally updates the pathed record
 
 Parameters
 
@@ -157,6 +177,10 @@ await resources.users.transaction(path, value, options);
 ---
 
 ##### update(path, value, options)
+
+Description
+
+* selectively updates the indicated record.
 
 Parameters
 
