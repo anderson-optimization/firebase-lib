@@ -14,7 +14,7 @@ To invoke the function with ordered parameters would result in the following
 "simplified" call.
 
 ```javascript
-let options = {truncateExtras: true};
+let options = {removeSubpaths: true};
 let params = [undefined, undefined, undefined, undefined, options];
 let observable = resources.users.userInfo.hobbies.list(...params);
 ```
@@ -22,7 +22,7 @@ let observable = resources.users.userInfo.hobbies.list(...params);
 It would be easier to specify an object with just options.
 
 ```javascript
-let params = {options: {truncateExtras: true}};
+let params = {options: {removeSubpaths: true}};
 let observable = resources.users.userInfo.hobbies.list(params);
 ```
 

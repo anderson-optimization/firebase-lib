@@ -29,9 +29,9 @@ export function reconcileParamsWithPresets(api, method, params) {
   return mergeWith({}, configsMethodParams, resourceMethodParams, params, paramsMerger);
 }
 
-export function reconcilePathToRef(api, path, {truncateExtras}) {
+export function reconcilePathToRef(api, path, {removeSubpaths}) {
   if(!(path && typeof path === 'object' && path.onDisconnect)) {
-    let activePath = api.updatePathTemplate(path, true, truncateExtras);
+    let activePath = api.updatePathTemplate(path, true, removeSubpaths);
     return api.database.ref(activePath);
   }
   

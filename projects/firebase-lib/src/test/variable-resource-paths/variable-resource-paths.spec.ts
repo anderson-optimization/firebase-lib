@@ -99,7 +99,7 @@ describe('Variable Resource Paths', () => {
       it('creates a path template whose non-variable part can be truncated', async () => {
         let path = {vars: {'#id': 'c', '#name': 'name'}, extras: ['last']};
         resources.users.userInfoData.updatePathTemplate(path);
-        let {value} = await resources.users.userInfoData.get({options: {truncateExtras: true}});
+        let {value} = await resources.users.userInfoData.get({options: {removeSubpaths: true}});
         expect(value).toEqual(usersData.c.name);
       });
     });

@@ -46,7 +46,7 @@ export const generalApi = {
     mergeWith(this.resourceDefinition.methodsParams, _methodsParams, paramsMerger);
   },
   
-  updatePathTemplate(_path, internal = false, truncateExtras = false) {
+  updatePathTemplate(_path, internal = false, removeSubpaths = false) {
     let {resourceDefinition} = this;
     let {pathVariableNames = [], path, pathTemplate} = resourceDefinition;
     let {pathVariablesToIndices = {}, resourceNameFull} = resourceDefinition;
@@ -108,7 +108,7 @@ export const generalApi = {
     
     if(extras.length) {
       activePath.splice(path.length, Infinity, ...extras);
-    } else if(truncateExtras) {
+    } else if(removeSubpaths) {
       activePath.splice(path.length);
     }
     
