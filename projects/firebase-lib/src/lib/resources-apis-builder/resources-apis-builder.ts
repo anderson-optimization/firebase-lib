@@ -29,7 +29,8 @@ export function resourcesApisBuilder(params) {
       resourceApiBuilder(resourceDefinition, configs);
     }
     
-    params = {configs, resourceDefinitions, resourceDefinition, first: false, names: names.concat(resourceName)};
+    params = {configs, resourceDefinitions, resourceDefinition};
+    Object.assign(params, {first: false, names: names.concat(resourceName)});
     _namespace[resourceName] = resourcesApisBuilder(params);
     return _namespace;
   }, {} as any);

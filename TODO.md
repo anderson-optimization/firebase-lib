@@ -3,6 +3,8 @@
 * think about getting rid of proxy and just bind functions to this
 * get rid of as much lodash as possible
 * make sure correct dependencies are used
+* for subpaths make sure that 0 value is handled
+
 
 ## DONEs
 

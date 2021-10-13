@@ -36,6 +36,7 @@
     * [object()]()
   * [General Resource API Methods]()
     * [clearPathTemplate()]()
+    * [clearSubpaths()]()
     * [clone()]()
     * [removeFromVariablesIndex()]()
     * [setMethodsParams()]()
