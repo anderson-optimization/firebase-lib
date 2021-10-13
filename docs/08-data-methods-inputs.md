@@ -34,4 +34,4 @@ regarded as ordered parameters.
 
 [Previous (Resource Access)](./07-resource-access.md) :palm_tree:
 [Table of Contents](../README.md) :palm_tree:
-[Next (Data Methods' Inputs)](./08-data-methods-inputs.md)
+[Next (Altering Non-Variable Resource Paths)](./09-altering-non-variable-resource-paths.md)

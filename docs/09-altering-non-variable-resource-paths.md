@@ -36,9 +36,10 @@ let {value: userInfo} = await.resources.users.get();
 
 Now, the empty `get()` call will still return `user-id`'s data.  Invoking
 `get()` or any other method on `users` with a new path will take precedence over
-what is set in the path template.  Executing a data method with the option to
-`{removeSubpaths: true}` will ignore additions to the template.  A path can be
-reset to its original via `clearPathTemplate()` call.
+the path template.  Executing a data method with the option to
+`{removeSubpaths: true}` will ignore additions to the template during that call.
+A path can be reset to its original via `clearPathTemplate()` call.  And, just
+the subpath can be removed via `clearSubpaths()`.
 
 NOTE: A measure of caution should be exercised when using path templates.
 Assigning sub-paths during method invocation, despite being slightly more
