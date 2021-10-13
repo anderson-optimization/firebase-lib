@@ -8,6 +8,13 @@ The latter may be necessary only if a new feature is added.  Use of TypeScript's
 types is discouraged.  Instead, self-documenting code, thorough tests, and
 complete usage notes are preferred.
 
+Use of semantic versioning is encouraged.  Bumping minor or patch parts of a
+version number can be done via npm.
+
+```
+npm version patch
+```
+
 ---
 
 [Previous (Development Setup)](./15-development-setup.md) :palm_tree:
