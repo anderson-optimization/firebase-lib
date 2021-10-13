@@ -9,7 +9,7 @@ database instance, an `AngularFireDatabase` instance is provided to the
 `AngularFireDatabase` object.  Perhaps the best Angular setup approach is to
 instantiate resources at the initialization of the application as shown below.
 
-**1. Include dependencies**
+#### Include dependencies
 
 ```javascript
 import {NgModule, APP_INITIALIZER} from '@angular/core';
@@ -24,7 +24,7 @@ import {firebaseConfigs}           from './configs/firebase-configs';
 import {resourceDefinitions}       from './configs/resource-definitions';
 ```
 
-**2. Initialize database and application and generate resources**
+#### Initialize database and application and generate resources
 
 ```javascript
 @NgModule({

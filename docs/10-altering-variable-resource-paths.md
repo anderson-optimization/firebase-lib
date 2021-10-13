@@ -55,7 +55,7 @@ must have `vars` and `subpaths` sections.
 let path = {vars: {'$uid': '22343', '#pid': 'p15'}, subpaths: ['subpath-1', 'subpath-2']};
 ```
 
-**NOTE:** The variables are declared within a path using interpolation syntax
+NOTE: The variables are declared within a path using interpolation syntax
 (e.g., `${uid}`).  When a variable's value is specified, its indicator consists
 of a global or local sign (`$` or `#`) and a name (e.g., `$uid`).
 

@@ -2,11 +2,11 @@
 
 ### Contributing Changes
 
-The general recommendations to contribute to the library are to use latest
-JavaScript features, have tests with complete code coverage, and provide
-documentation.  The latter may be necessary only if a new feature is added.  Use
-of TypeScript's types is discouraged.  Instead, self-documenting code, thorough
-tests, and complete usage notes are preferred.
+The general recommendations for contributions are to use the latest JavaScript
+features, have tests with complete code coverage, and provide documentation.
+The latter may be necessary only if a new feature is added.  Use of TypeScript's
+types is discouraged.  Instead, self-documenting code, thorough tests, and
+complete usage notes are preferred.
 
 ---
 
