@@ -47,7 +47,7 @@ or may not be a resource itself.
 NOTE: The path for a resource is absolute!  `firebase-lib` will **not**
 concatenate nested paths with the paths of namespacing resources.
 
-**Basic namespacing**
+Basic namespacing:
 
 ```javascript
 export const resourceDefinitions = {
@@ -57,7 +57,7 @@ export const resourceDefinitions = {
 };
 ```
 
-**Namespace that is also a resource**
+Namespace that is also a resource:
 
 ```javascript
 export const resourceDefinitions = {
@@ -83,7 +83,7 @@ NOTE: The same variable can be used more than once within a path.  Very few, if
 any, use cases would require that.  The library, however, does support such
 declarations.
 
-**Array path with variables**
+Array path with variables:
 
 ```javascript
 export const resourceDefinitions = {
@@ -91,7 +91,7 @@ export const resourceDefinitions = {
 };
 ```
 
-**String path with variables**
+String path with variables:
 
 ```javascript
 export const resourceDefinitions = {
@@ -99,7 +99,7 @@ export const resourceDefinitions = {
 };
 ```
 
-**String and array path with variables**
+String and array path with variables:
 
 ```javascript
 export const resourceDefinitions = {
@@ -107,7 +107,7 @@ export const resourceDefinitions = {
 };
 ```
 
-**String path with "duplicate" variables**
+String path with "duplicate" variables:
 
 ```javascript
 export const resourceDefinitions = {
@@ -115,7 +115,7 @@ export const resourceDefinitions = {
 };
 ```
 
-**String path with variables as parts of database key**
+String path with variables as parts of database key:
 
 ```javascript
 export const resourceDefinitions = {
