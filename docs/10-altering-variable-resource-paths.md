@@ -82,7 +82,7 @@ await resources.projectInfo.set(undefined, value);
 Path template can be reset to the original path by invoking
 `clearPathTemplate()` and subpaths can be removed by calling `clearSubpaths()`.
 
-#### 3. Application-Level Varible Replacement
+#### 3. Application-Level Variable Replacement
 
 Multiple resources can have equal parts that may need repeated replacement.
 These parts can be represented as global variables and then changed.
@@ -106,10 +106,10 @@ let {value: lastName} = await resources.hobbies.get();
 ```
 
 Whenever a global variable is changed again, resources' operations must be
-rerun.  Perhaps in a future version of a library that setp can be automated.
+rerun.  Perhaps in a future version of the library that setp can be automated.
 
 ---
 
 [Previous (Altering Non-Variable Resource Paths)](./09-altering-non-variable-resource-paths.md) :palm_tree:
 [Table of Contents](../README.md) :palm_tree:
-[Next (Cloning Resources)](./11-cloning-resources.md)
+[Next (Querying Resources)](./11-querying-resources.md)
