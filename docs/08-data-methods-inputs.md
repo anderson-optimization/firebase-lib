@@ -1,6 +1,6 @@
 ## `firebase-lib` Documentation
 
-### Data Methods' Parameter Inputs
+### Data Methods' Inputs
 
 Data methods allow fetching and mutating database subsets and include Firebase
 API's `get`, `push`, `remove`, `set`, `transaction`, and `update`, and
