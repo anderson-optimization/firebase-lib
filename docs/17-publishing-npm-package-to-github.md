@@ -18,4 +18,4 @@ npm publish
 
 [Previous (Contributing Changes)](./16-contributing-changes.md) :palm_tree:
 [Table of Contents](../README.md) :palm_tree:
-[Next (Firebase API Methods)](./18-firebase-api-methods.md)
+[Next (`firebase-lib` Exports)](./17a-firebase-lib-exports.md)
