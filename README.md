@@ -4,7 +4,7 @@
 
 * [Introduction](./docs/00-introduction.md)
 * [Usage](./docs/01-installation.md)
-  * [Library Installation](./docs/01-installation)
+  * [Library Installation](./docs/01-installation.md)
   * [Creating Resource Definitions](./docs/02-creating-resource-definitions.md)
   * [Instantiating Resources](./docs/03-instantiating-resources.md)
     * [Instantiating Resources for Firebase API](./docs/04instantiating-for-firebase-api.md)
