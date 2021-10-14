@@ -15,7 +15,7 @@ on user input.  `firebase-lib` allows path variables to capture access
 changeability.  Global variables are interpolatable across all paths.  Local
 variables are substitutable only at a specific resource. Globals can likewise be
 targetedly assigned.  The simplest path alteration available is appending and
-then, if necessary, truncating sub-paths. The library provides functionality for
+then, if necessary, truncating subpaths. The library provides functionality for
 presetting path parts or changing them at the time of a data method invocation.
 For use cases that require multiple instances of the same resource, but with
 specific settings, `firebase-lib` can be used to clone a resource and then each

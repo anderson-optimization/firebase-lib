@@ -35,7 +35,7 @@ let path = {'$uid': '22343', '#pid': 'p15'};
 ```
 
 Variable replacement can be combined with non-variable path augmentation.
-Whenever an array format is used, subpaths can simply be included in an array.
+Whenever an array format is used, subpaths can simply be included in the array.
 
 ```javascript
 let path = [['$uid', '22343'], 'subpath-1', ['#pid', 'p15'], 'subpath-2'];
@@ -48,16 +48,16 @@ Or,
 let path = [{'$uid': '22343'}, {'#pid', 'p15'}, 'subpath-1', 'subpath-2'];
 ```
 
-In cases where an object is the best way to provide path information, the object
-must have `vars` and `subpaths` sections.
+In cases where an object is the optimal format to provide path information, the
+object must have `vars` and `subpaths` sections.
 
 ```javascript
 let path = {vars: {'$uid': '22343', '#pid': 'p15'}, subpaths: ['subpath-1', 'subpath-2']};
 ```
 
-NOTE: The variables are declared within a path using interpolation syntax
+NOTE: Variables are declared within a path using interpolation syntax
 (e.g., `${uid}`).  When a variable's value is specified, its indicator consists
-of a global or local sign (`$` or `#`) and a name (e.g., `$uid`).
+of the global or local sign (`$` or `#`) and a name (e.g., `$uid`).
 
 #### Resource-Level Variable Replacement
 
@@ -97,16 +97,16 @@ export const resourceDefinitions {
 ```
 
 To replace `$uid`s globally `setPathVariables()` available at the `resources`
-should be used.
+namespace should be used.
 
 ```javascript
 resources.setPathVariables({'$uid': 'c'});
-let {value: hobbies} = await resources.users.get();
-let {value: lastName} = await resources.hobbies.get();
+let {value: user} = await resources.users.get();
+let {value: hobbies} = await resources.hobbies.get();
 ```
 
 Whenever a global variable is changed again, resources' operations must be
-rerun.  Perhaps in a future version of the library that setp can be automated.
+rerun.  Perhaps in a future version of the library that step can be automated.
 
 ---
 

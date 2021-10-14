@@ -47,7 +47,7 @@ resources === resourceCollections['my-resources']; //true
 ```
 
 NOTE: `methodsParams` parameter can also be added if there is a need to preset
-methods' parameters at the application level.  The generated `resources` can be
+methods' parameters at the application level.  The generated `resources` can
 also be accessed from `resourceCollections['my-resources']`.
 
 ---

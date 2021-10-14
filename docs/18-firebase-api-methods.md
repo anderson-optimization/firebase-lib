@@ -43,15 +43,15 @@ Description
 Parameters
 
 * path *(optional)*
-* value
+* value ***required***
 * options *(optional)*
   * addTimestamps
     * if *true*, will add `created` and `modified` timestamps
-    * will include timestamps only if `value` is an object
+    * will include timestamps only when `value` is an object
   * includePushKey
     * if *true*, will include auto-generated key as `key` within `value`
     * if a string, will include auto-generated key as `includeKey`'s value within `value`
-    * will include the auto-generated key only if `value` is an object
+    * will include the auto-generated key only when `value` is an object
   * onComplete
     * a callback that will be invoked once the operation is complete
   * removeSubpaths
@@ -102,17 +102,17 @@ let {ref} = await resources.users.remove(path);
 
 Description
 
-* adds a new record or completely overrides an existing record
+* adds a new record or completely overrides an existing one
 
 Parameters
 
 * path *(optional)*
-* value
+* value ***required***
 * options *(optional)*
   
   * addTimestamps
     * if *true*, will add `created` and `modified` timestamps
-    * will include timestamps only if `value` is an object
+    * will include timestamps only when `value` is an object
   * onComplete
     * a callback that will be invoked once the operation is complete
   * removeSubpaths
@@ -142,12 +142,13 @@ Description
 Parameters
 
 * path *(optional)*
-* value
+* value ***required***
 * options *(optional)*
   
   * addTimestamps
     * if *true*, will add `modified` timestamp
-    * will include timestamp only if a parameter received by a function is an object
+    * will include timestamp only when a parameter received by the `value` 
+      function is an object
   * onComplete
     * a callback that will be invoked once the operation is complete
   * removeSubpaths
@@ -185,12 +186,12 @@ Description
 Parameters
 
 * path *(optional)*
-* value
+* value ***required***
 * options *(optional)*
   
   * addTimestamps
     * if *true*, will add `modified` timestamp
-    * will include timestamp only if `value` is an object
+    * will include timestamp only when `value` is an object
   * onComplete
     * a callback that will be invoked once the operation is complete
   * removeSubpaths

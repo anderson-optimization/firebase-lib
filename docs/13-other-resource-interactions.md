@@ -29,7 +29,7 @@ retrieval, change, and removal.
 
 #### Memory Leak Prevention
 
-Resouce definitions that define global variables are stored in a registry.  If
+Resource definitions that define global variables are stored in a registry.  If
 a lot of resources are dynamically created, for example, via cloning, then after
 they are no longer needed, their entries in the registry should be cleared to
 free up memory.
@@ -40,8 +40,8 @@ clone2.removeFromVariablesIndex();
 clone3.removeFromVariablesIndex();
 ```
 
-To clear registry for all resources `removeFromVariablesIndex()` can be called
-on the collection directly.
+To clear the registry for all resources `removeFromVariablesIndex()` can be
+called on the collection directly.
 
 ```javascript
 resources.removeFromVariablesIndex()

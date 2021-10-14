@@ -6,7 +6,7 @@
 
 Description
 
-* resets the path template to the original path
+* resets a path template to an original path
 
 Parameters None
   
@@ -24,7 +24,7 @@ resources.users.userInfo.clearPathTemplate();
 
 Description
 
-* truncats subpaths from the path template
+* truncates subpaths from the path template
 
 Parameters None
   
@@ -84,10 +84,10 @@ Description
 Parameters
 
 * methodsParams
-  * this object should be partitioned by each data method
+  * this object should be partitioned by data method names
   * each data method's section should specify default parameters
   * the method will merge `options` parameter with existing ones
-  * parameters other than `options` will be overwritten with newer value
+  * parameters other than `options` will be overwritten with newer values
   
 Returns `undefined`
 
@@ -126,27 +126,27 @@ Examples
 
 ```javascript
 let path = 'configs';
-resources.userInfo.updatePathVariable(path);
+resources.userInfo.updatePathTemplate(path);
 ```
 
 ```javascript
 let path = ['configs', 'styles];
-resources.userInfo.updatePathVariable(path);
+resources.userInfo.updatePathTemplate(path);
 ```
 
 ```javascript
 let path = [['$uid', '22'], ['#tid', 'team-a'], 'settings'];
-resources.userInfo.updatePathVariable(path);
+resources.userInfo.updatePathTemplate(path);
 ```
 
 ```javascript
 let path = [{'$uid': '22'}, {'#tid': 'team-a'}, 'settings'];
-resources.userInfo.updatePathVariable(path);
+resources.userInfo.updatePathTemplate(path);
 ```
 
 ```javascript
 let path = {vars: {'$uid': '22', '#tid': 'team-a'}, subpaths: ['settings']};
-resources.userInfo.updatePathVariable(path);
+resources.userInfo.updatePathTemplate(path);
 ```
 
 ---

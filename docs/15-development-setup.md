@@ -3,9 +3,9 @@
 ### Development Setup
 
 Library development and testing requires a working instance of the database.
-The best approach is to run Firebase emulator locally.  Installing and launching
-an emulator requires `firebase-tools`.  These can be installed by running the
-following command.
+The best approach is to run the Firebase emulator locally.  Installing and
+launching the emulator requires `firebase-tools`.  These can be installed by
+running the following.
 
 ```
 npm install -g firebase-tools
@@ -33,20 +33,20 @@ the command select `Don't set up a default project`.  For emulators select only
 `Database Emulator`.  For the rest of the choices select defaults.
 
 `firebase emulators:start` can be started without `--project firebase-lib`.
-Running emulator with the project option will launch web interface that can be
-used to browse data.
+Running the emulator with the project option will launch a web interface that
+can be used to browse data.
 
-After database emulator is up, go back to `firebase-lib` directory and launch
-development mode.
+After the database emulator is up, go back to `firebase-lib` directory and
+launch the development mode.
 
 ```
-ng test
+npm run test
 ```
 
 Or,
 
 ```
-ng test --code-coverage
+npm run test:coverage
 ```
 
 ---

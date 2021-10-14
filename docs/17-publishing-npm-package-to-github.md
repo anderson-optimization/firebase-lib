@@ -2,9 +2,9 @@
 
 ### Publishing Npm Package to Github
 
-Publishing `firebase-lib` npm package requires a Github Personal Access Token
-with permissions to read and publish packages.  The token should be stored in
-an environmental variable `GITHUB_TOKEN`.
+Publishing `firebase-lib` npm distributable requires a Github Personal Access
+Token with permissions to read and publish packages.  The token should be stored
+in an environmental variable `GITHUB_TOKEN`.
 
 To publish the package, run the following commands.
 

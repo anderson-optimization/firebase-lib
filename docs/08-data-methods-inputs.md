@@ -4,10 +4,10 @@
 
 Data methods allow fetching and mutating database subsets and include Firebase
 API's `get`, `push`, `remove`, `set`, `transaction`, and `update`, and
-AngularFire API's `list` and `object`.  All data methods' parameters are
+AngularFire API's `list` and `object`.  Almost all data methods' parameters are
 optional.  Whenever a method's behavior has to be altered via inputs, the latter
 can be supplied in the order that a method expects them or via an object whose
-keys indicate the types of values that are being given.  Using an object can be
+keys indicate the types of inputs that are being given.  Using an object can be
 convenient when just a fifth ordered parameter needs to be passed to a function.
 For example, `list()` method takes five inputs with `options` being the last.
 To invoke the function with ordered parameters would result in the following
@@ -26,8 +26,8 @@ let params = {options: {removeSubpaths: true}};
 let observable = resources.users.userInfo.hobbies.list(params);
 ```
 
-NOTE: If a data function receives just one parameter and it is an object, then
-its properties will be treated as inputs.  All other data formats will be
+NOTE: When a data function receives just one parameter and it is an object, the
+object's properties will be treated as inputs.  All other data formats will be
 regarded as ordered parameters.
 
 ---

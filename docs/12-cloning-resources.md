@@ -4,8 +4,8 @@
 
 Sometimes copies of resources may be necessary with minor variations.  One
 possible approach is to have a base resource with all the necessary presets.
-The base resource is then cloned and each of the replicas is modified to
-represent a desired state.
+The resource is then cloned and each of the replicas is modified to represent a
+desired state.
 
 ```javascript
 let {projectInfo} = resources;

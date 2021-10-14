@@ -6,7 +6,8 @@
 
 Description
 
-* provides `AngularFire` database instance *(if it was provided at the initialization)*
+* provides `AngularFire` database instance *(if it was included at the
+  initialization)*
 
 Parameters None
   
@@ -84,7 +85,7 @@ Description
 Parameters
 
 * variableName
-  * the first parameter can be an object of variableNames and values pairs
+  * the first parameter can also be an object of variable names and values pairs
 * value *(optional)*
   
 Returns `undefined`

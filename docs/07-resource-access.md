@@ -4,7 +4,7 @@
 
 Resources can be nested as deep as practically necessary within namespaces.
 Access to a resource's api should follow the same hierarchy laid out in the
-definitions file.  Consider the following resource definitions.
+definitions file.  Consider the following resource declarations.
 
 ```javascript
 export const resourceDefinitions = {
@@ -19,8 +19,8 @@ export const resourceDefinitions = {
 ```
 
 After resources are instantiated by `resourcesApisFactory()` and stored in, say,
-`resources` variable, accessing hobbies alias to get its data would necessitate
-the following call.
+`resources` variable, accessing the hobbies alias to get its data would
+necessitate the following call.
 
 ```javascript
 let {value} = await resources.users.userInfo.hobbies.get();

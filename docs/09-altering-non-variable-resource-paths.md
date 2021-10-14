@@ -3,8 +3,8 @@
 ### Altering Non-Variable Resource Paths
 
 A resource path that does not include global or local variables can be altered
-only by appending a sub-path to it and then, if necessary, removing the
-addition.  The alteration can be made during a data method's call or before by
+only by appending a subpath to it and then, if necessary, removing the
+addition.  The alteration can be made during a data method's call or prior by
 changing the path template.  The latter changes persist until subsequent path 
 template modifications.  Path alterations made during a method's execution are
 good only for that invocation.
@@ -18,7 +18,7 @@ export const resourceDefinitions = {
 ```
 
 To fetch a specific user, a `user-id` can be included in a `get()` call as a
-sub-path that will be appended to the resource path.  The new path
+subpath that will be appended to the resource path.  The new path
 `users/user-id` is generated during the `get()` invocation and will not persist
 beyond that execution.
 
@@ -38,11 +38,11 @@ Now, the empty `get()` call will still return `user-id`'s data.  Invoking
 `get()` or any other method on `users` with a new path will take precedence over
 the path template.  Executing a data method with the option to
 `{removeSubpaths: true}` will ignore additions to the template during that call.
-A path can be reset to its original via `clearPathTemplate()`.  And, just the
+A path can be reset to the original via `clearPathTemplate()`.  And, just the
 subpaths can be removed via `clearSubpaths()`.
 
 NOTE: A measure of caution should be exercised when using path templates.
-Assigning sub-paths during method invocation, despite being slightly more
+Assigning subpaths during method invocation, despite being slightly more
 verbose, is more deterministic and thus less problematic.
 
 ---
