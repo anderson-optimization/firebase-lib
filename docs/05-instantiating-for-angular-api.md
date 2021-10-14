@@ -40,13 +40,9 @@ import {resourceDefinitions}       from './configs/resource-definitions';
     multi: true,
     useFactory(angularDatabase) {
       return () => {
-        let resourcesParams = {
-          collectionName: 'angular',
-          resourceDefinitions,
-          angularDatabase
-        };
+        let params = {collectionName: 'angular', resourceDefinitions, angularDatabase};
+        let resources = resourcesApisFactory(params);
         
-        let resources = resourcesApisFactory(resourcesParams);
         console.log(resources === resourceCollections.angular);
       }
     },
