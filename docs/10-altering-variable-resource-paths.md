@@ -79,7 +79,7 @@ resources.projectInfo.updatePathTemplate(path);
 await resources.projectInfo.set(undefined, value);
 ```
 
-Path template can be reset to the original path by invoking
+A path template can be reset to its original path by invoking
 `clearPathTemplate()` and subpaths can be removed by calling `clearSubpaths()`.
 
 #### Application-Level Variable Replacement
