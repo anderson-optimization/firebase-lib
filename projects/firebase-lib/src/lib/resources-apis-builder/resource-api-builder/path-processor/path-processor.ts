@@ -4,7 +4,7 @@ import {globalVariablePrefix, variablePrefixes} from '../../_lib/resources-apis-
 import {varNameRx, varsRx}                      from './_lib/path-processor-vars';
 
 export function pathProcessor(resourceDefinition, {collectionName, database}) {
-  let {path, pathTemplate} = resourceDefinition;
+  let {path} = resourceDefinition;
   let pathVariablesToIndices = {};
   let pathVariableNames = [];
   let globalVariableNames = [];
