@@ -1,21 +1,17 @@
 import {libraryName, resourceCollections}  from '../../lib/_lib/vars'
 import {variableToResourceDefinitions}     from '../../lib/resources-apis-builder/_lib/resources-apis-builder-vars';
+import {teamsData}                         from '../_fixtures/data/teams-data';
 import {firebaseLibInitializerForFirebase} from '../_fixtures/initializers/firebase-lib-initializer-for-firebase';
 import {resourceDefinitions}               from './_fixtures/general-resource-definitions';
 import {resourceDefinitionsParams}         from './_fixtures/general-params-resource-definitions';
 
 describe('General Resource Api', () => {
   let resources;
-  let teams = {
-    1: {name: 'team 1'},
-    2: {name: 'team 2'},
-    3: {name: 'team 3'}
-  };
   
   beforeAll(async () => {
     firebaseLibInitializerForFirebase('general', resourceDefinitions);
     resources = resourceCollections.general;
-    await resources.teams.set(null, teams);
+    await resources.teams.set(null, teamsData);
   });
   
   describe('clone()', () => {
@@ -71,7 +67,7 @@ describe('General Resource Api', () => {
       
       firebaseLibInitializerForFirebase('general-params', resourceDefinitionsParams, methodsParams);
       resources = resourceCollections['general-params'];
-      await resources.teams.set(null, teams);
+      await resources.teams.set(null, teamsData);
     });
     
     describe('setMethodsParams()', async () => {
@@ -83,22 +79,22 @@ describe('General Resource Api', () => {
       
       it('gets snapshot per top-level configs method param settings', async () => {
         let {snapshot} = await resources.teams.get(1);
-        expect(snapshot.val()).toEqual(teams[1]);
+        expect(snapshot.val()).toEqual(teamsData[1]);
       });
       
       it('receives value per resource level override', async () => {
         let {value} = await resources.teamsParams.get(1);
-        expect(value).toEqual(teams[1]);
+        expect(value).toEqual(teamsData[1]);
       });
       
       it('obtains ref per method call override', async () => {
         let {ref} = await resources.teamsParams.get({path: 1, options: {returnData: ['ref']}});
-        ref.once('value').then((snapshot) => expect(snapshot.val()).toEqual(teams[1]));
+        ref.once('value').then((snapshot) => expect(snapshot.val()).toEqual(teamsData[1]));
       });
       
       it('returns ref per resource definition methods params setting', async () => {
         let {ref} = await resources.teamsParamsPreset.get({path: 2});
-        ref.once('value').then((snapshot) => expect(snapshot.val()).toEqual(teams[2]));
+        ref.once('value').then((snapshot) => expect(snapshot.val()).toEqual(teamsData[2]));
       });
       
       it('pulls key per configs level settings', async () => {
@@ -109,6 +105,6 @@ describe('General Resource Api', () => {
   });
   
   describe('updatePathTemplate()', () => {
-    it(`is tested in its own Variable Resource Paths section`, () => {});
+    it(`is further tested in its own Variable Resource Paths section`, () => {});
   })
 });

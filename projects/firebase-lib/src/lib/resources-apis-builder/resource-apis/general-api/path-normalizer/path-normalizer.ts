@@ -1,5 +1,6 @@
 import isPlainObject      from 'lodash.isplainobject';
 import {variablePrefixes} from '../../../_lib/resources-apis-builder-vars';
+import {isFalsey}         from '../_lib/general-api-utils';
 
 export function pathNormalizer(pathInfo) {
   if(!isPlainObject(pathInfo)) {
@@ -15,13 +16,13 @@ export function pathNormalizer(pathInfo) {
         
         return pathInfo;
       }, {vars: {}, subpaths: []});
-    } else if(pathInfo) {
+    } else if(!isFalsey(pathInfo)) {
       pathInfo = {subpaths: [pathInfo]};
     }
   } else {
     let {vars, subpaths} = pathInfo;
     
-    if(subpaths && !Array.isArray(subpaths)) {
+    if(!Array.isArray(subpaths) && !isFalsey(subpaths)) {
       subpaths = [subpaths];
       Object.assign(pathInfo, {subpaths});
     }

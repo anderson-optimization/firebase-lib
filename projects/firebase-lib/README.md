@@ -1,6 +1,6 @@
 ## firebase-lib
 
-The library builds on [Firebase][b] and [Angular Fire][a] software development 
+The library builds on [Firebase][b] and [AngularFire][a] software development
 kits (SDKs) and facilitates a simplified way of interfacing with the database.
 The software provides a mechanism to abstract subsets of data as resources and
 alias their direct paths declaratively in definition files.  The aliases can be
@@ -13,13 +13,13 @@ on user input.  `firebase-lib` allows path variables to capture access
 changeability.  Global variables are interpolatable across all paths.  Local
 variables are substitutable only at a specific resource. Globals can likewise be
 targetedly assigned.  The simplest path alteration available is appending and
-then, if necessary, truncating sub-paths. The library provides functionality for
+then, if necessary, truncating subpaths. The library provides functionality for
 presetting path parts or changing them at the time of a data method invocation.
 For use cases that require multiple instances of the same resource, but with
 specific settings, `firebase-lib` can be used to clone a resource and then each
 duplicate can be altered to a desired state.  Beyond just path configurability,
 the library can preset every input for the data methods globally.  Fixing query
-or path parameters at the application level is unlikedly to be necessitated.
+or path parameters at the application level is unlikely to be necessitated.
 However, preconfiguring data return options or the type of observable that an
 Angular Fire method produces can be useful.  Parameter prefilling can also be
 accomplished at the resource level programmatically and declaratively.  Both

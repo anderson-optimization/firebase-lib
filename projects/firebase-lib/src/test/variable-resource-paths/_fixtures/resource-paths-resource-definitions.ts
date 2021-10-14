@@ -12,5 +12,6 @@ export const resourceDefinitions = {
     userInfoGlobal: ['users-paths', '${uid}', '#{name}'],
     userInfoKeyVar: '#{users}-paths',
     userInfoVarsDouble: 'users-paths/${someId}/name/${someId}'
-  }
+  },
+  teamsZero: 'teams-zero'
 };

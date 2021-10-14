@@ -1,5 +1,6 @@
 import {libraryName, resourceCollections}  from '../../lib/_lib/vars'
 import {variableToResourceDefinitions}     from '../../lib/resources-apis-builder/_lib/resources-apis-builder-vars';
+import {teamsData}                         from '../_fixtures/data/teams-data';
 import {usersData}                         from '../_fixtures/data/users-data';
 import {firebaseLibInitializerForFirebase} from '../_fixtures/initializers/firebase-lib-initializer-for-firebase'
 import {resourceDefinitions}               from './_fixtures/resource-paths-resource-definitions';
@@ -148,6 +149,24 @@ describe('Variable Resource Paths', () => {
       let {value: lastName} = await resources.users.userInfoGlobal.get();
       expect(hobbies).toEqual(hobbiesData.c);
       expect(lastName).toBe(usersData.c.name.last);
+    });
+  });
+  
+  describe('Zero (0) key tests', () => {
+    beforeAll(async () => {
+      await resources.teamsZero.set({value: teamsData});
+    });
+    
+    it('fetches a resource with id of zero (0)', async () => {
+      let {value} = await resources.teamsZero.get(0);
+      expect(value).toEqual(teamsData[0]);      
+    });
+    
+    it('gets a resource with a preset id of zero (0)', async () => {
+      resources.teamsZero.updatePathTemplate({subpaths: 0});
+      let {value} = await resources.teamsZero.get();
+      expect(value).toEqual(teamsData[0]);
+      resources.teamsZero.clearPathTemplate();
     });
   });
 });
