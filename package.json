@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && cp ./.npmrc ./dist/firebase-lib/",
+    "build": "ng build && cp ./.npmrc-dist ./dist/firebase-lib/.npmrc",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:coverage": "ng test --code-coverage"
