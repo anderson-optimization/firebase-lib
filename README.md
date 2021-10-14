@@ -7,7 +7,7 @@
   * [Library Installation](./docs/01-installation.md)
   * [Creating Resource Definitions](./docs/02-creating-resource-definitions.md)
   * [Instantiating Resources](./docs/03-instantiating-resources.md)
-    * [Instantiating Resources for Firebase API](./docs/04instantiating-for-firebase-api.md)
+    * [Instantiating Resources for Firebase API](./docs/04-instantiating-for-firebase-api.md)
     * [Instantiating Resources for AngularFire API](./docs/05-instantiating-for-angular-api.md)
     * [Instantiation Examples]('./docs/06-instantiation-examples.md')
   * [Interacting with Resources](./docs/07-resource-access.md)
