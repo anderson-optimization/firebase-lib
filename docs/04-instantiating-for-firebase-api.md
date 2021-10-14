@@ -2,12 +2,12 @@
 
 ### Instantiating Resources for Firebase API
 
-At this time `firebase-lib` is tested with compatibility layer of version 9 of
-Firebase API.  As the dependency becomes more documented, the appropriate
+At this time `firebase-lib` is tested with the compatibility layer of version 9
+of Firebase API.  As the dependency becomes more documented, the appropriate
 changes will be made to this documentation.  Regardless of the API version used,
 the general process of instantiating resources should remain the same.  Whenever
-just the Firebase API is used with the library, naturally, AngularFireDatabase
-methods will be excluded from the resource api.
+just the Firebase API is used with the library, naturally, AngularFire methods
+will be excluded from the resource api.
 
 #### Include dependencies
 ```javascript
@@ -54,4 +54,4 @@ also be accessed from `resourceCollections['my-resources']`.
 
 [Previous (Instantiating Resources)](./03-instantiating-resources.md) :palm_tree:
 [Table of Contents](../README.md) :palm_tree:
-[Next (Instantiating Resources for AngularFireDatabase API)](./05-instantiating-for-angular-api.md)
+[Next (Instantiating Resources for AngularFire API)](./05-instantiating-for-angular-api.md)

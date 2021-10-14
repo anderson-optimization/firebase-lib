@@ -23,8 +23,8 @@ export const resourceDefinitions = {
 
 #### Basic resource with explicit `path` and `methodsParams`
 
-Whenever methods' parameters are to be preset within a definition, longhand
-declaration is the only one that can be used.
+Whenever methods' parameters are to be preset within a definition, the longhand
+declaration is the one to be used.
 
 ```javascript
 export const resourceDefinitions = {
@@ -75,12 +75,12 @@ export const resourceDefinitions = {
 #### Variable-path resources
 
 The library allows global and local variables within a path.  Global variables
-begin with a dollar sign (`$`).  Local variables start with a pound sign (`#`).
-Variable names are delineated using curly braces (`{` `}`).  Resource paths can
-be declared as strings, arrays, or a combination of both.
+begin with the dollar sign (`$`).  Local variables start with the pound sign
+(`#`).  Variable names are delineated using curly brackets (`{` `}`).  Resource
+paths can be declared as strings, arrays, or a combination of both.
 
 NOTE: The same variable can be used more than once within a path.  Very few, if
-any, use cases would require that.  The library, however, does support such
+any, use cases would call for that.  The library, however, does support such
 declarations.
 
 Array path with variables:
@@ -115,7 +115,7 @@ export const resourceDefinitions = {
 };
 ```
 
-String path with variables as parts of database key:
+String path with variables as parts of a database key:
 
 ```javascript
 export const resourceDefinitions = {

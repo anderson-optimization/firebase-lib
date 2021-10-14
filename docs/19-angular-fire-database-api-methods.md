@@ -1,6 +1,6 @@
 ## `firebase-lib` Documentation
 
-### AngularFireDatabase API Methods
+### AngularFire API Methods
 
 ##### list(path, query, observableMethod, eventTypes, options)
 

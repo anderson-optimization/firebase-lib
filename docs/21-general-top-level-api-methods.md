@@ -6,11 +6,11 @@
 
 Description
 
-* provides `AngularFireDatabase` instance *(if it was provided at the initialization)*
+* provides `AngularFire` database instance *(if it was provided at the initialization)*
 
 Parameters None
   
-Returns `AngularFireDatabase` instance
+Returns `AngularFire` database instance
 
 Example
 

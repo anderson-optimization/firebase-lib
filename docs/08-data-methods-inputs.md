@@ -4,7 +4,7 @@
 
 Data methods allow fetching and mutating database subsets and include Firebase
 API's `get`, `push`, `remove`, `set`, `transaction`, and `update`, and
-AngularFireDatabase API's `list` and `object`.  All data methods' parameters are
+AngularFire API's `list` and `object`.  All data methods' parameters are
 optional.  Whenever a method's behavior has to be altered via inputs, the latter
 can be supplied in the order that a method expects them or via an object whose
 keys indicate the types of values that are being given.  Using an object can be

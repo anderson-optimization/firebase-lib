@@ -8,6 +8,6 @@ examples.
 
 ---
 
-[Previous (Instantiating Resources for AngularFireDatabase API)](./05-instantiating-for-angular-api.md) :palm_tree:
+[Previous (Instantiating Resources for AngularFire API)](./05-instantiating-for-angular-api.md) :palm_tree:
 [Table of Contents](../README.md) :palm_tree:
 [Next (Resource Access)](./07-resource-access.md)

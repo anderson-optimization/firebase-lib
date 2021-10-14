@@ -22,8 +22,8 @@ resources.userInfo.setMethodsParams(methodsParams);
 
 #### Data retrieval and mutation
 
-This documentation's Firebase and AngularFireDatabase API sections can be
-referenced for more details of using data methods.  The tests folder - 
+This documentation's Firebase and AngularFire API sections can be referenced for
+more details of using data methods.  The tests folder -
 `projects/firebase-lib/src/test` - also provides detailed examples of data
 retrieval, change, and removal.
 
