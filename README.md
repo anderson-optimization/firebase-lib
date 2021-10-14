@@ -9,7 +9,7 @@
   * [Instantiating Resources](./docs/03-instantiating-resources.md)
     * [Instantiating Resources for Firebase API](./docs/04-instantiating-for-firebase-api.md)
     * [Instantiating Resources for AngularFire API](./docs/05-instantiating-for-angular-api.md)
-    * [Instantiation Examples]('./docs/06-instantiation-examples.md')
+    * [Instantiation Examples]('./docs/06-instantiation-examples.md)
   * [Interacting with Resources](./docs/07-resource-access.md)
     * [Resource Access](./docs/07-resource-access.md)
     * [Data Methods' Inputs](./docs/08-data-methods-inputs.md)
