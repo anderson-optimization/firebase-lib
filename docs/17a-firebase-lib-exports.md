@@ -36,49 +36,10 @@ Parameters
 
 Returns Proxy object that intercepts property access and returns data or a method
 
-Example
+Examples
 
-```javascript
-import {NgModule, APP_INITIALIZER} from '@angular/core';
-import {BrowserModule}             from '@angular/platform-browser';
-import {AngularFireModule}         from '@angular/fire/compat';
-import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
-import {AngularFireDatabase}       from '@angular/fire/compat/database';
-import {resourcesApisFactory}      from '@anderson-optimization/firebase-lib';
-import {resourceCollections}       from '@anderson-optimization/firebase-lib';
-import {AppComponent}              from './app.component';
-import {firebaseConfigs}           from './configs/firebase-configs';
-import {resourceDefinitions}       from './configs/resource-definitions';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfigs)
-  ],
-  providers: [{
-    provide: APP_INITIALIZER,
-    multi: true,
-    useFactory(angularDatabase) {
-      return () => {
-        let resourcesParams = {
-          collectionName: 'projects',
-          resourceDefinitions,
-          angularDatabase
-        };
-        
-        let resources = resourcesApisFactory(resourcesParams);
-        console.log(resources === resourceCollections.projects);
-      }
-    },
-    deps: [AngularFireDatabase]
-  }],
-  bootstrap: [AppComponent]
-})
-export class AppModule {}
-```
+See [Instantiating Resources for Firebase API](./04-instantiating-for-firebase-api.md)
+and [Instantiating Resources for Angular API](./05-instantiating-for-angular-api.md).
 
 ---
 
