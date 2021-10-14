@@ -24,7 +24,7 @@
   * [Contributing Changes](./docs/16-contributing-changes.md)
   * [Publishing Npm Package to Github](./docs/17-publishing-npm-package-to-github.md)
 * [Application Programming Interfaces (APIs)](./docs/17a-firebase-lib-exports.md)
-  * [`firebae-lib` Exports](./docs/17a-firebase-lib-exports.md)
+  * [`firebase-lib` Exports](./docs/17a-firebase-lib-exports.md)
   * [Firebase API Methods](./docs/18-firebase-api-methods.md)
     * [get()](./docs/18-firebase-api-methods.md)
     * [push()](./docs/18-firebase-api-methods.md)
