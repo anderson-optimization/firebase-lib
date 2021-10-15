@@ -12,7 +12,7 @@
     * [Instantiation Examples](./docs/usage/resource-instantiation/04-instantiation-examples.md)
   * [Interacting with Resources](./docs/usage/resource-interaction/01-resource-access.md)
     * [Resource Access](./docs/usage/resource-interaction/01-resource-access.md)
-    * [Data Methods' Inputs](./docs/usage/resource-ineration/02-data-methods-inputs.md)
+    * [Data Methods' Inputs](./docs/usage/resource-interaction/02-data-methods-inputs.md)
     * [Altering Non-Variable Resource Paths](./docs/usage/resource-interaction/03-altering-non-variable-resource-paths.md)
     * [Altering Variable Resource Paths](./docs/usage/resource-interaction/04-altering-variable-resource-paths.md)
     * [Querying Resources](./docs/usage/resource-interaction/05-querying-resources.md)
