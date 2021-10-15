@@ -3,7 +3,7 @@
 ### Table of Contents
 
 * [Introduction](./docs/introduction.md)
-* [Usage](./docs/01-usage/01-installation.md)
+* [Usage](./docs/usage/01-installation.md)
   * [Library Installation](./docs/usage/setup/01-installation.md)
   * [Creating Resource Definitions](./docs/usage/setup/02-creating-resource-definitions.md)
   * [Instantiating Resources](./docs/usage/resource-instantiation/01-instantiating-resources.md)
