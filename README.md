@@ -4,8 +4,9 @@
 
 * [Introduction](./docs/introduction.md)
 * [Usage](./docs/usage/setup/01-installation.md)
-  * [Library Installation](./docs/usage/setup/01-installation.md)
-  * [Creating Resource Definitions](./docs/usage/setup/02-creating-resource-definitions.md)
+  * [Setup](./docs/usage/setup/01-installation.md)
+    * [Library Installation](./docs/usage/setup/01-installation.md)
+    * [Creating Resource Definitions](./docs/usage/setup/02-creating-resource-definitions.md)
   * [Instantiating Resources](./docs/usage/resource-instantiation/01-instantiating-resources.md)
     * [Instantiating Resources for Firebase API](./docs/usage/resource-instantiation/02-instantiating-for-firebase-api.md)
     * [Instantiating Resources for AngularFire API](./docs/usage/resource-instantiation/03-instantiating-for-angular-api.md)
