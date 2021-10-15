@@ -28,6 +28,6 @@ let query = [
 
 ---
 
-[Previous (Altering Variable Resource Paths)](./10-altering-variable-resource-paths.md) :palm_tree:
-[Table of Contents](../README.md) :palm_tree:
-[Next (Cloning Resources)](./12-cloning-resources.md)
+[Previous (Altering Variable Resource Paths)](./04-altering-variable-resource-paths.md) :palm_tree:
+[Table of Contents](../../../README.md) :palm_tree:
+[Next (Cloning Resources)](./06-cloning-resources.md)

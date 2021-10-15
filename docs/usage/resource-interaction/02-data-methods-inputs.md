@@ -32,6 +32,6 @@ regarded as ordered parameters.
 
 ---
 
-[Previous (Resource Access)](./07-resource-access.md) :palm_tree:
-[Table of Contents](../README.md) :palm_tree:
-[Next (Altering Non-Variable Resource Paths)](./09-altering-non-variable-resource-paths.md)
+[Previous (Resource Access)](./01-resource-access.md) :palm_tree:
+[Table of Contents](../../../README.md) :palm_tree:
+[Next (Altering Non-Variable Resource Paths)](./03-altering-non-variable-resource-paths.md)

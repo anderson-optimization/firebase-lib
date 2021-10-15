@@ -47,6 +47,6 @@ verbose, is more deterministic and thus less problematic.
 
 ---
 
-[Previous (Data Methods' Inputs)](./08-data-methods-inputs.md) :palm_tree:
-[Table of Contents](../README.md) :palm_tree:
-[Next (Altering Variable Resource Paths)](./10-altering-variable-resource-paths.md)
+[Previous (Data Methods' Inputs)](./02-data-methods-inputs.md) :palm_tree:
+[Table of Contents](../../../README.md) :palm_tree:
+[Next (Altering Variable Resource Paths)](./03-altering-variable-resource-paths.md)

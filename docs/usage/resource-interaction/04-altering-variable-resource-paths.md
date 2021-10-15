@@ -110,6 +110,6 @@ rerun.  Perhaps in a future version of the library that step can be automated.
 
 ---
 
-[Previous (Altering Non-Variable Resource Paths)](./09-altering-non-variable-resource-paths.md) :palm_tree:
-[Table of Contents](../README.md) :palm_tree:
-[Next (Querying Resources)](./11-querying-resources.md)
+[Previous (Altering Non-Variable Resource Paths)](./03-altering-non-variable-resource-paths.md) :palm_tree:
+[Table of Contents](../../../README.md) :palm_tree:
+[Next (Querying Resources)](./05-querying-resources.md)

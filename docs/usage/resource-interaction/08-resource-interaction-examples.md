@@ -7,6 +7,6 @@ functionality can be perused through in `projects/firebase-lib/src/test` folder.
 
 ---
 
-[Previous (Other Resource Interactions)](./13-other-resource-interactions.md) :palm_tree:
-[Table of Contents](../README.md) :palm_tree:
-[Next (Development Setup)](./15-development-setup.md)
+[Previous (Other Resource Interactions)](./07-other-resource-interactions.md) :palm_tree:
+[Table of Contents](../../../README.md) :palm_tree:
+[Next (Development Setup)](../../development/01-development-setup.md)

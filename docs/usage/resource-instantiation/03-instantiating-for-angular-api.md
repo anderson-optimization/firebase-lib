@@ -55,6 +55,6 @@ export class AppModule {}
 
 ---
 
-[Previous (Instantiating Resources for Firebase API)](./04-instantiating-for-firebase-api.md) :palm_tree:
-[Table of Contents](../README.md) :palm_tree:
-[Next (Instantiation Examples)](./06-instantiation-examples.md)
+[Previous (Instantiating Resources for Firebase API)](./02-instantiating-for-firebase-api.md) :palm_tree:
+[Table of Contents](../../../README.md) :palm_tree:
+[Next (Instantiation Examples)](./04-instantiation-examples.md)

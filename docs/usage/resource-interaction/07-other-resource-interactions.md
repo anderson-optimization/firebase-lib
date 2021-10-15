@@ -53,6 +53,6 @@ running for some time, then their memory should be freed.
 
 ---
 
-[Previous (Cloning Resources)](./12-cloning-resources.md) :palm_tree:
-[Table of Contents](../README.md) :palm_tree:
-[Next (Resource Interaction Examples)](./14-resource-interaction-examples.md)
+[Previous (Cloning Resources)](./06-cloning-resources.md) :palm_tree:
+[Table of Contents](../../../README.md) :palm_tree:
+[Next (Resource Interaction Examples)](./08-resource-interaction-examples.md)

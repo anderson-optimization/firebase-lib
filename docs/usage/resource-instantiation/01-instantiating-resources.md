@@ -12,6 +12,6 @@ part of `resourceCollections`.
 
 ---
 
-[Previous (Creating Resource Definitions)](./02-creating-resource-definitions.md) :palm_tree:
-[Table of Contents](../README.md) :palm_tree:
-[Next (Instantiating Resources for Firebase API)](./04-instantiating-for-firebase-api.md)
+[Previous (Creating Resource Definitions)](../setup/02-creating-resource-definitions.md) :palm_tree:
+[Table of Contents](../../../README.md) :palm_tree:
+[Next (Instantiating Resources for Firebase API)](./02-instantiating-for-firebase-api.md)

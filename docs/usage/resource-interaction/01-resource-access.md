@@ -36,6 +36,6 @@ let {snapshot} = await hobbies.get({options: {returnData: ['snapshot']}});
 
 ---
 
-[Previous (Instantiation Examples)](./06-instantiation-examples.md) :palm_tree:
-[Table of Contents](../README.md) :palm_tree:
-[Next (Data Methods' Inputs)](./08-data-methods-inputs.md)
+[Previous (Instantiation Examples)](../resource-instantiation/04-instantiation-examples.md) :palm_tree:
+[Table of Contents](../../../README.md) :palm_tree:
+[Next (Data Methods' Inputs)](./02-data-methods-inputs.md)

@@ -16,6 +16,6 @@ npm version patch
 
 ---
 
-[Previous (Development Setup)](./15-development-setup.md) :palm_tree:
-[Table of Contents](../README.md) :palm_tree:
-[Next (Publishing Npm Package to Github)](./17-publishing-npm-package-to-github.md)
+[Previous (Development Setup)](./01-development-setup.md) :palm_tree:
+[Table of Contents](../../../README.md) :palm_tree:
+[Next (Publishing Npm Package to Github)](./03-publishing-npm-package-to-github.md)

@@ -34,7 +34,7 @@ resource instances are no longer needed.
 ---
 
 [Table of Contents](../README.md) :palm_tree:
-[Next (Library Installation)](./01-installation.md)
+[Next (Library Installation)](./docs/usage/setup/01-installation.md)
 
 [a]: https://github.com/angular/angularfire
 [b]: https://firebase.google.com/docs/reference/js/v8/firebase

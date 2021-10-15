@@ -29,6 +29,6 @@ let [{value: configs}, {value: styles}, {value: comments}] = await Promise.all([
 
 ---
 
-[Previous (Querying Resources)](./11-querying-resources.md) :palm_tree:
-[Table of Contents](../README.md) :palm_tree:
-[Next (Other Resource Interactions)](./13-other-resource-interactions.md)
+[Previous (Querying Resources)](./05-querying-resources.md) :palm_tree:
+[Table of Contents](../../../README.md) :palm_tree:
+[Next (Other Resource Interactions)](./07-other-resource-interactions.md)

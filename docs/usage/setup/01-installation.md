@@ -18,6 +18,6 @@ npm install --save @anderson-optimization/firebase-lib
 ```
 ---
 
-[Previous (Introduction)](./00-introduction.md) :palm_tree:
-[Table of Contents](../README.md) :palm_tree:
+[Previous (Introduction)](../../introduction.md) :palm_tree:
+[Table of Contents](../../../README.md) :palm_tree:
 [Next (Creating Resource Definitions)](./02-creating-resource-definitions.md)
