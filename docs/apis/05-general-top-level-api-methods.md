@@ -103,4 +103,4 @@ resources.setPathVariables({'$uid': '23432', '$tid': 'team22'});
 ---
 
 [Previous (General Resource API Methods)](./04-general-resource-api-methods.md) :palm_tree:
-[Table of Contents](../../../README.md)
+[Table of Contents](../../README.md)

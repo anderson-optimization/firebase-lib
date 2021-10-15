@@ -152,5 +152,5 @@ resources.userInfo.updatePathTemplate(path);
 ---
 
 [Previous (AngularFire API Methods)](./03-angular-fire-database-api-methods.md) :palm_tree:
-[Table of Contents](../../../README.md) :palm_tree:
+[Table of Contents](../../README.md) :palm_tree:
 [Next (General Top-Level API Methods)](./05-general-top-level-api-methods.md)

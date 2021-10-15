@@ -17,5 +17,5 @@ npm publish
 ---
 
 [Previous (Contributing Changes)](./02-contributing-changes.md) :palm_tree:
-[Table of Contents](../../../README.md) :palm_tree:
+[Table of Contents](../../README.md) :palm_tree:
 [Next (`firebase-lib` Exports)](../apis/01-firebase-lib-exports.md)

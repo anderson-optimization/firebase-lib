@@ -52,5 +52,5 @@ npm run test:coverage
 ---
 
 [Previous (Resource Interaction Examples)](../usage/resource-interaction/08-resource-interaction-examples.md) :palm_tree:
-[Table of Contents](../../../README.md) :palm_tree:
+[Table of Contents](../../README.md) :palm_tree:
 [Next (Contributing Changes)](./02-contributing-changes.md)

@@ -214,5 +214,5 @@ let {value, key} = await resources.users.update(path, value, options);
 ---
 
 [Previous (`firebase-lib` Exports)](./01-firebase-lib-exports.md) :palm_tree:
-[Table of Contents](../../../README.md) :palm_tree:
+[Table of Contents](../../README.md) :palm_tree:
 [Next (AngularFire API Methods)](./03-angular-fire-database-api-methods.md)

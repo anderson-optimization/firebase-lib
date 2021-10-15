@@ -56,5 +56,5 @@ Description
 ---
 
 [Previous (Publishing Npm Package to Github)](../development/03-publishing-npm-package-to-github.md) :palm_tree:
-[Table of Contents](../../../README.md) :palm_tree:
+[Table of Contents](../../README.md) :palm_tree:
 [Next (Firebase API Methods)](./02-firebase-api-methods.md)

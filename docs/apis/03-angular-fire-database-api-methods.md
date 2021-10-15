@@ -73,5 +73,5 @@ let subscription = resources.users.object(params).subscribe((value) => {
 ```
 
 [Previous (Firebase API Methods)](./02-firebase-api-methods.md) :palm_tree:
-[Table of Contents](../../../README.md) :palm_tree:
+[Table of Contents](../../README.md) :palm_tree:
 [Next (General Resource API Methods)](./04-general-resource-api-methods.md)
