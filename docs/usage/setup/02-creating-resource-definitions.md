@@ -127,4 +127,4 @@ export const resourceDefinitions = {
 
 [Previous (Installation)](./01-installation.md) :palm_tree:
 [Table of Contents](../README.md) :palm_tree:
-[Next (Instantiating Resources)](./03-instantiating-resources.md)
+[Next (Instantiating Resources)](../resource-instantiation/01-instantiating-resources.md)
