@@ -48,21 +48,22 @@ describe('Firebase Api', () => {
     it('grabs a snapshot of a resource', async () => {
       let params = {path: 'c', options: {returnData: ['snapshot']}};
       let {snapshot} = await resources.users.userInfo.get(params);
-      expect(snapshot.child('name/first').val()).toBe('Allison');
+      expect(snapshot.child('name/first').val()).toBe(usersData.c.name.first);
     });
    
     it('outputs a reference of the queried resource', async () => {
+      let firstName = 'Tom';
       let options = {returnData: ['ref']};
       let query = [
         ['orderByChild', 'name/first'],
-        ['equalTo', 'Tom']
+        ['equalTo', firstName]
       ];
       
       let {ref} = await resources.users.userInfo.get({query, options});
       
       function dataHandler(snapshot) {
         let firstName = snapshot.child('b/name/first').val();
-        expect(firstName).toBe('Tom');
+        expect(firstName).toBe(firstName);
         expect(snapshot.numChildren()).toBe(1);
         ref.off('value', dataHandler);
       }
@@ -225,6 +226,7 @@ describe('Firebase Api', () => {
         it('augments a record with new information', async () => {
           let options = {returnData: ['value']};
           let population = 21_480_000;
+          let expected = Object.assign({}, states.fl, {population});
           let updater = (value) => {
             if(value === null) {
               return true;
@@ -234,7 +236,7 @@ describe('Firebase Api', () => {
           }
           
           let {value} = await resources.states.transaction('fl', updater, options);
-          expect(value).toEqual({name: 'Florida', population});
+          expect(value).toEqual(expected);
         });
         
         it('adds only a modification timestamp to a record', async () => {
