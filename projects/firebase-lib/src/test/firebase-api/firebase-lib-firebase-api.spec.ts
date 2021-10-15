@@ -273,7 +273,7 @@ describe('Firebase Api', () => {
           expect(Object.keys(value).sort()).toEqual(['modified', 'name', 'population']);
           expect(options.onComplete).toHaveBeenCalled();
         });
-      });      
+      });
     });
   });
 });
