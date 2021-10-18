@@ -14,15 +14,15 @@ export function resourcesApisFactory(configs) {
     error(`resources collection '${collectionName}' already exists`);
   }
 
-  if(!database) {
-    if(!angularDatabase) {
-      error('provide angular or regular firebase instance');
-    }
-    
+  if(!database && !angularDatabase) {
+    error('provide angular or regular firebase instance');
+  }
+
+  if(angularDatabase) {
     database = angularDatabase.database.app.database();
     Object.assign(configs, {database});
   }
-  
+
   function ResourceApi(resourceDefinition) {
     if(!resourceDefinition.methodsParams) {
       resourceDefinition.methodsParams = {};
