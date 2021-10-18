@@ -1,4 +1,3 @@
-const angularMethodParams = ['path', 'query', 'observableMethod', 'eventTypes', 'options'];
 const mutatorParams = ['path', 'value', 'options'];
 
 export const methodToParamNames = {
@@ -8,6 +7,6 @@ export const methodToParamNames = {
   transaction: mutatorParams,
   update: mutatorParams,
   remove: ['path', 'options'],
-  list: angularMethodParams,
-  object: angularMethodParams
+  list: ['path', 'query', 'observableMethod', 'eventTypes', 'options'],
+  object: ['path', 'observableMethod', 'eventTypes', 'options']
 };

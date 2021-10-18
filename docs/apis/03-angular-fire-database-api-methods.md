@@ -44,13 +44,12 @@ Description
 * returns an Observable that emits every time specified events are triggered on
   the data subset
 * the emitted value is an object
-* the latter is the reason why querying will not work with this method
+* the latter is the reason why querying will not work with `object()` and why
+  the method does not take a query parameter
 
 Parameters
   
 * path *(optional)*
-* query *(optional)*
-  * NOTE: Query parameter will not work for `object()` use `list()` instead
 * observableMethod *(optional)*
   * one of `valueChanges`, `snapshotChanges`, `stateChanges`, `auditTrail`
   * default is `valueChanges`

@@ -95,7 +95,7 @@ describe('AngularFirebase Api', () => {
       resources.cities.update('ny', update).then(done);
     });
     
-    it('will ignore query settings (use list() for filtering and sorting)', (done) => {
+    it('does not have a query parameter (use list() for filtering and sorting)', (done) => {
       let query = [
         ['orderByChild', 'state'],
         ['equalTo', 'TN']
