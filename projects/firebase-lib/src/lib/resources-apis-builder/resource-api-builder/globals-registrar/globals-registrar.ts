@@ -1,5 +1,5 @@
-import {getAndSetIfNil}                from '../../_lib/resources-apis-builder-utils';
-import {variableToResourceDefinitions} from '../../_lib/resources-apis-builder-vars';
+import {getAndSetIfNil}                from '../../../_lib/utils';
+import {variableToResourceDefinitions} from '../../../_lib/vars';
 
 export function globalsRegistrar(resourceDefinition, configs) {
   let {globalVariableNames} = resourceDefinition;

@@ -1,5 +1,5 @@
 import {libraryName, resourceCollections}  from '../../lib/_lib/vars'
-import {variableToResourceDefinitions}     from '../../lib/resources-apis-builder/_lib/resources-apis-builder-vars';
+import {variableToResourceDefinitions}     from '../../lib/_lib/vars';
 import {teamsData}                         from '../_fixtures/data/teams-data';
 import {firebaseLibInitializerForFirebase} from '../_fixtures/initializers/firebase-lib-initializer-for-firebase';
 import {resourceDefinitions}               from './_fixtures/general-resource-definitions';

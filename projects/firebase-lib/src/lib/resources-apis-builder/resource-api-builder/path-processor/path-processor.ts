@@ -1,6 +1,6 @@
 import cloneDeep                                from 'lodash.clonedeep';
-import {getAndSetIfNil}                         from '../../_lib/resources-apis-builder-utils';
-import {globalVariablePrefix, variablePrefixes} from '../../_lib/resources-apis-builder-vars';
+import {getAndSetIfNil}                         from '../../../_lib/utils';
+import {globalVariablePrefix, variablePrefixes} from '../../../_lib/vars';
 import {varNameRx, varsRx}                      from './_lib/path-processor-vars';
 
 export function pathProcessor(resourceDefinition, {collectionName, database}) {

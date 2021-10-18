@@ -1,18 +1,6 @@
 import cloneDeep     from 'lodash.clonedeep';
 import isPlainObject from 'lodash.isplainobject';
 
-export function getAndSetIfNil(...params) {
-  let [o, property, valueIfNotSet] = params;
-  
-  let value = o[property];
-  
-  if(typeof value === 'undefined') {
-    value = o[property] = valueIfNotSet;
-  }
-  
-  return value;
-}
-
 export function isValidPath(path) {
   if(typeof path === 'string' || Array.isArray(path)) {
     if(path.length) {

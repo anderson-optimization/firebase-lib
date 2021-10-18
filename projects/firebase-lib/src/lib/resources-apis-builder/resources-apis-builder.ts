@@ -1,10 +1,10 @@
 import omit                          from 'lodash.omit';
 import {error}                       from '../_lib/utils';
+import {resourceApisAll}             from '../resource-apis/resource-apis-all';
 import {normalizeResourceDefinition} from './_lib/resources-apis-builder-utils';
 import {isValidPath}                 from './_lib/resources-apis-builder-utils';
 import {reservedResourceKeywords}    from './_lib/resources-apis-builder-vars';
 import {resourceApiBuilder}          from './resource-api-builder/resource-api-builder';
-import {resourceApisAll}             from './resource-apis/resource-apis-all';
 
 export function resourcesApisBuilder(params) {
   let {configs, resourceDefinitions, resourceDefinition, first, names} = params;

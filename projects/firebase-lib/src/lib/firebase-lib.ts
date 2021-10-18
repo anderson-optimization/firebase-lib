@@ -1,7 +1,7 @@
 import {error}                               from './_lib/utils';
 import {resourceCollections}                 from './_lib/vars';
+import {angularApi, firebaseApi, generalApi} from './resource-apis/resource-apis';
 import {resourcesApisBuilder}                from './resources-apis-builder/resources-apis-builder';
-import {angularApi, firebaseApi, generalApi} from './resources-apis-builder/resource-apis/resource-apis';
 import {TopGeneralApi}                       from './top-general-api/top-general-api';
 
 export function resourcesApisFactory(configs) {

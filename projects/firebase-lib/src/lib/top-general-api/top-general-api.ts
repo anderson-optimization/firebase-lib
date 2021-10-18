@@ -1,6 +1,6 @@
 import isPlainObject                   from 'lodash.isplainobject';
 import {error}                         from '../_lib/utils';
-import {variableToResourceDefinitions} from '../resources-apis-builder/_lib/resources-apis-builder-vars';
+import {variableToResourceDefinitions} from '../_lib/vars';
 
 export class TopGeneralApi {
   constructor(private configs) {}

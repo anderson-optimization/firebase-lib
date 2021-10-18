@@ -1,8 +1,8 @@
-import isPlainObject      from 'lodash.isplainobject';
+import isPlainObject        from 'lodash.isplainobject';
 import mergeWith            from 'lodash.mergewith';
-import {error}              from '../../../_lib/utils';
-import {getAndSetIfNil}     from '../../_lib/resources-apis-builder-utils';
-import {variablePrefixes}   from '../../_lib/resources-apis-builder-vars';
+import {error}              from '../../_lib/utils';
+import {getAndSetIfNil}     from '../../_lib/utils';
+import {variablePrefixes}   from '../../_lib/vars';
 import {paramsMerger}       from './params-merger';
 import {methodToParamNames} from './resource-apis-vars';
 
