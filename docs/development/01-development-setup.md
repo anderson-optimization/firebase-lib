@@ -14,7 +14,7 @@ npm install -g firebase-tools
 Next, clone the repository and install the dependencies.
 
 ```
-git@github.com:anderson-optimization/firebase-lib.git
+git clone git@github.com:anderson-optimization/firebase-lib.git
 cd firebase-lib
 npm install
 ```
