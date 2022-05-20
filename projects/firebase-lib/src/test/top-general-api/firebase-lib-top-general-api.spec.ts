@@ -34,6 +34,15 @@ describe('Top-Level General Api', () => {
       expect(key.startsWith('-')).toBe(true);
     });
   });
+
+  describe('getResourcesByVariable()', () => {
+    it('Returns path variables in the collection', () => {
+      let pathVariables = Object.keys(resources.getResourcesByVariable());
+      expect(pathVariables.length).toBe(1)
+      expect(pathVariables[0]).toBe('$cityId')
+    });
+  });
+  
   
   describe('removeFromVariablesIndex()', () => {
     it('clears all resource definitions from global variables registry', async () => {

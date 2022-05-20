@@ -22,6 +22,16 @@ export class TopGeneralApi {
     delete variableToResourceDefinitions[collectionName];
   }
 
+  getResourcesByVariable(variableName?){
+    let {collectionName} = this.configs;
+    let collectionResourceDefinitions = variableToResourceDefinitions[collectionName] || {} ;
+    if(variableName){
+      return collectionResourceDefinitions[variableName];
+    } else {
+      return collectionResourceDefinitions;
+    }
+  }
+
   setPathVariables(variableName, value?) {
     let {collectionName} = this.configs;
 
