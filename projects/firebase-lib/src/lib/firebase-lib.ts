@@ -1,18 +1,25 @@
 import {error}                               from './_lib/utils';
-import {resourceCollections}                 from './_lib/vars';
+import {counters, resourceCollections}       from './_lib/vars';
 import {angularApi, firebaseApi, generalApi} from './resource-apis/resource-apis';
 import {resourcesApisBuilder}                from './resources-apis-builder/resources-apis-builder';
 import {TopGeneralApi}                       from './top-general-api/top-general-api';
 
 export function resourcesApisFactory(configs) {
-  let {collectionName = 'default', resourceDefinitions} = configs as any;
+  let {collectionName = 'default', resourceDefinitions, cache} = configs as any;
   let {angularDatabase, database} = configs;
+  let cacheCollection = cache !== false;
+
+  if(cacheCollection) {
+    if(resourceCollections[collectionName]) {
+      error(`resources collection '${collectionName}' already exists`);
+    }
+  } else {
+    collectionName = `${collectionName}_uncached_${++counters.uncachedCollection}`;
+    configs = {...configs, collectionName};
+  }
+
   let topGeneralApi = new TopGeneralApi(configs);
   let resourceDefinition = {topGeneralApi};
-
-  if(resourceCollections[collectionName]) {
-    error(`resources collection '${collectionName}' already exists`);
-  }
 
   if(!database && !angularDatabase) {
     error('provide angular or regular firebase instance');
@@ -27,7 +34,7 @@ export function resourcesApisFactory(configs) {
     if(!resourceDefinition.methodsParams) {
       resourceDefinition.methodsParams = {};
     }
-    
+
     Object.assign(this, {
       configs,
       angularDatabase,
@@ -44,5 +51,11 @@ export function resourcesApisFactory(configs) {
 
   Object.assign(configs, {ResourceApi});
   let params = {configs, resourceDefinitions, resourceDefinition, first: true, names: []};
-  return resourceCollections[collectionName] = resourcesApisBuilder(params);
+  let collection = resourcesApisBuilder(params);
+
+  if(cacheCollection) {
+    resourceCollections[collectionName] = collection;
+  }
+
+  return collection;
 }
