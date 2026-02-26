@@ -1,5 +1,5 @@
-import {resourcesApisFactory}             from '../../lib/firebase-lib';
-import {libraryName, resourceCollections} from '../../lib/_lib/vars';
+import {resourcesApisFactory}                                  from '../../lib/firebase-lib';
+import {libraryName, resourceCollections, variableToResourceDefinitions} from '../../lib/_lib/vars';
 
 describe('resourcesApisFactory()', () => {
   it(`generates apis under 'default' collection name if none are provided`, () => {
@@ -92,6 +92,42 @@ describe('resourcesApisFactory()', () => {
     resourcesApisFactory({database: {}, resourceDefinitions, collectionName: 'tester2'});
     let message = `${libraryName}: property 'someInvalidMethod' does not exist`;
     let error = new Error(message);
-    expect(() => resourceCollections.tester2.someInvalidMethod()).toThrow(error);     
+    expect(() => resourceCollections.tester2.someInvalidMethod()).toThrow(error);
+  });
+
+  describe('cache: false', () => {
+    let counter = 0;
+    let mockDatabase = () => ({ref: () => ({push: () => ({key: `mock-key-${++counter}`})})});
+
+    it('allows creating multiple collections with the same collectionName', () => {
+      let resourceDefinitions = {users: 'users'};
+      let params1 = {database: mockDatabase(), resourceDefinitions, collectionName: 'multi', cache: false};
+      let params2 = {database: mockDatabase(), resourceDefinitions, collectionName: 'multi', cache: false};
+      let collection1 = resourcesApisFactory(params1) as any;
+      let collection2 = resourcesApisFactory(params2) as any;
+      expect(typeof collection1.users.get).toBe('function');
+      expect(typeof collection2.users.get).toBe('function');
+    });
+
+    it('does not store the collection in resourceCollections', () => {
+      let resourceDefinitions = {users: 'users'};
+      let params = {database: mockDatabase(), resourceDefinitions, collectionName: 'no-store', cache: false};
+      resourcesApisFactory(params);
+      expect(resourceCollections['no-store']).toBeUndefined();
+    });
+
+    it('isolates variableToResourceDefinitions entries across uncached instances', () => {
+      let resourceDefinitions = {items: ['items', '${itemId}']};
+      let params1 = {database: mockDatabase(), resourceDefinitions, collectionName: 'isolated', cache: false};
+      let params2 = {database: mockDatabase(), resourceDefinitions, collectionName: 'isolated', cache: false};
+      let collection1 = resourcesApisFactory(params1) as any;
+      let collection2 = resourcesApisFactory(params2) as any;
+
+      let resources1 = collection1.getResourcesByVariable('$itemId');
+      let resources2 = collection2.getResourcesByVariable('$itemId');
+      expect(resources1).toBeDefined();
+      expect(resources2).toBeDefined();
+      expect(resources1).not.toBe(resources2);
+    });
   });
 });
